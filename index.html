@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/f012a1f94f.js" crossorigin="anonymous"></script>
+    <title>Dr. Burguer - Seja Bem Vindo</title>
+    <link rel="stylesheet" href="./assets/style/main.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__logo">
+          <a href="#"><img src="assets/img/logo.png" alt="Brand Dr. Burguer" /></a>
+        </div>
+
+        <nav class="header__navmenu">
+          <button
+            type="button"
+            class="toggle-menu"
+            data-toggle="collapse"
+            aria-controls="menu"
+            aria-expanded="false"
+            aria-label="Abrir Menu"
+            aria-haspopup="true"
+          >
+            <span class="toggle-menu__icons"></span>
+          </button>
+
+          <ul id="menu" role="menu">
+            <li>
+              <a href="#">Reserva</a>
+            </li>
+            <li>
+              <a href="#">Serviços</a>
+            </li>
+            <li>
+              <a href="#">Cardápio</a>
+            </li>
+            <li>
+              <a href="#">Depoimentos</a>
+            </li>
+          </ul>
+
+          <div class="container-cart">
+           <button class="btn-cart"">
+            <a href="#">Meu carrinho</a>
+            <i class="fa-solid fa-bag-shopping"></i>
+          </button>
+          </div>
+      
+        </nav>
+      </div>
+    </header>
+
+    <aside class="banner" id="banner"></aside>
+
+    <section class="servicos" id="servicos"></section>
+
+    <main class="cardapio" id="cardapio"></main>
+
+    <section class="depoimentos" id="depoimentos"></section>
+    <section class="reserva" id="reserva"></section>
+    <footer class="footer" id="footer"></footer>
+  </body>
+</html>
