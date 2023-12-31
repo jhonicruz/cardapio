@@ -18,7 +18,7 @@
 
 .header__logo {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -26,6 +26,7 @@
   width: 150px;
   display: block;
   object-fit: cover;
+  margin-left: -25px;
 }
 
 .header__navmenu {
