@@ -2,6 +2,9 @@
 @import "./base/base.css";
 @import "./base/normalize.css";
 @import "./base/typograph.css";
+@import "./util/globals.css";
+@import "./components/btn.css";
 @import "./layout/header.css";
+@import "./layout/banner.css";
 /* @import "./libs/bootstrap.min.css"; */
 /* @import "./libs/font-awesome.min.css"; */

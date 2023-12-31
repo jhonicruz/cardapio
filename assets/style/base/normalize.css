@@ -17,6 +17,7 @@ body {
   background-color: var(--color-background);
   font-family: "poppinsregular", sans-serif;
   color: var(--color-text);
+  height: 100vh;
 }
 
 img {

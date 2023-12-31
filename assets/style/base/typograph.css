@@ -11,7 +11,7 @@
   font-family: "poppinsmedium";
   src: url("../../fonts/poppins-medium-webfont.woff2") format("woff2"),
     url("../../fonts/poppins-medium-webfont.woff") format("woff");
-  font-weight: 600;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -19,7 +19,7 @@
   font-family: "poppinsbold";
   src: url("../../fonts/poppins-bold-webfont.woff2") format("woff2"),
     url("../../fonts/poppins-bold-webfont.woff") format("woff");
-  font-weight: medium;
+  font-weight: bold;
   font-style: normal;
 }
 
