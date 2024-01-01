@@ -116,6 +116,11 @@
   align-items: center;
   border-radius: 15px;
   padding: 0.9rem 1.5rem;
+  transition: 300ms;
+}
+
+.banner__content__social-icons a:hover i {
+  background-color: var(--color-primary);
 }
 
 @media (max-width: 936px) {
