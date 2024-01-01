@@ -77,9 +77,23 @@
     height: 30px;
     background-color: transparent;
     border: none;
-    padding: 0.8rem;
+    padding: 1.2rem;
     cursor: pointer;
     order: 2;
+  }
+
+  .header__navmenu .toggle-menu.open span {
+    border-top-color: transparent;
+  }
+
+  .header__navmenu .toggle-menu.open span::after {
+    transform: rotate(135deg);
+    position: relative;
+    top: -8px;
+  }
+
+  .header__navmenu .toggle-menu.open span::before {
+    transform: rotate(-135deg);
   }
 
   .header__navmenu .toggle-menu span {
@@ -89,6 +103,7 @@
     border-top: 2px solid black;
     position: relative;
     top: -8px;
+    transition: 200ms;
   }
 
   .header__navmenu .toggle-menu span::after,
@@ -99,6 +114,7 @@
     display: block;
     background-color: black;
     margin-top: 6px;
+    transition: 200ms;
   }
 
   .container-cart {
