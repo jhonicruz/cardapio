@@ -9,6 +9,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  order: -1;
 }
 
 .header__logo a img {
@@ -63,4 +64,58 @@
   width: max-content;
   height: inherit;
   height: 60px;
+}
+
+@media (max-width: 960px) {
+  #menu {
+    display: none;
+  }
+  .header__navmenu .toggle-menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+    order: 2;
+  }
+
+  .header__navmenu .toggle-menu span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-top: 2px solid black;
+    position: relative;
+    top: -8px;
+  }
+
+  .header__navmenu .toggle-menu span::after,
+  .header__navmenu .toggle-menu span::before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    display: block;
+    background-color: black;
+    margin-top: 6px;
+  }
+
+  .container-cart {
+    display: flex;
+    order: -1;
+    flex: 1 1 80%;
+    justify-content: flex-end;
+  }
+
+  .container.header-container {
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container-cart {
+    display: none;
+  }
 }

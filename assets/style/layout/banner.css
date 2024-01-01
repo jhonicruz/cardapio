@@ -22,7 +22,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .banner__images {
@@ -54,7 +54,7 @@
 .banner__images .banner__images__shape {
   position: absolute;
   top: 20px;
-  right: -20px;
+  right: 0;
   width: 450px;
   height: 450px;
   background-color: var(--color-primary);
@@ -66,6 +66,7 @@
   top: 50px;
   left: -80px;
   z-index: 1;
+  width: 500px;
 }
 
 .banner__images .depoimento {
@@ -99,12 +100,16 @@
 
 .banner__content__social-icons {
   display: flex;
-  gap: 5rem;
+  gap: 3rem;
+}
+
+.banner__content__social-icons a {
+  color: var(--color-black);
 }
 
 .banner__content__social-icons a i {
   font-size: 20px;
-  background-color: var(--color-primary);
+  background-color: var(--color-white);
   height: 45px;
   width: 45px;
   display: flex;
