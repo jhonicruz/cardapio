@@ -46,6 +46,17 @@
   color: var(--color-black);
 }
 
+.section__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  grid-column: 1 / -1;
+
+  padding: 2rem;
+}
+
 @media (max-width: 600px) {
   .title {
     text-align: center;

@@ -4,8 +4,11 @@
 @import "./base/typograph.css";
 @import "./util/globals.css";
 @import "./components/btn.css";
+@import "./components/link-categories.css";
+@import "./components/go-to-start.css";
 @import "./layout/header.css";
 @import "./layout/banner.css";
 @import "./layout/servicos.css";
+@import "./layout/cardapio.css";
 /* @import "./libs/bootstrap.min.css"; */
 /* @import "./libs/font-awesome.min.css"; */
