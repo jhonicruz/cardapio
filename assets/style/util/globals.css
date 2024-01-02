@@ -64,4 +64,11 @@
   .paragraphs {
     text-align: center;
   }
+  .section__title.section__title--depoimentos {
+    align-items: center !important;
+  }
+
+  .depoimentos__content__feedback__client__text p {
+    font-size: 1.3rem;
+  }
 }
