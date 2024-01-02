@@ -26,13 +26,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 250px));
   width: 100%;
-
   max-width: 1100px;
-
+  padding: 2rem 0;
   gap: 2.4rem;
   justify-content: center;
   margin: 0 auto;
   transition: 250ms;
+  overflow: hidden;
 }
 
 /* hover effects */
@@ -57,11 +57,10 @@
 }
 
 .cardapio__item {
-  gap: 1rem;
-  padding: 2rem;
+  padding: 1.6rem;
 
   border-radius: 11px;
-  height: 400px;
+  height: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,36 +72,50 @@
   transition: all 100ms;
 }
 
+.cardapio__item__image {
+  overflow: hidden;
+  width: 100%;
+}
+
 .cardapio__item__image img {
   border-radius: 11px;
-  width: 100%;
+  height: 100%;
 }
 
 .cardapio__item__content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1.6rem;
   text-align: center;
   word-wrap: break-word;
   overflow: hidden;
+  height: 100px;
 }
 
-.cardapio__item__content h3 {
-  margin-bottom: 1rem;
+.cardapio__item__content__text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardapio__item__content .cardapio__item__content__text h3 {
+  /* margin-bottom: 1rem; */
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 
   width: 200px;
-  height: 30px;
+
+  height: 3rem;
 
   font-size: clamp(1.8rem, 1rem + 1vw, 2.2rem);
   font-family: "poppinsbold", sans-serif;
   color: var(--color-black);
 }
 
-.cardapio__item__content span {
+.cardapio__item__content .cardapio__item__content__text span {
   font-size: clamp(2.4rem, 1rem + 1vw, 2.8rem);
   font-family: "poppinsmedium", sans-serif;
   color: var(--color-primary);
@@ -137,16 +150,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 .add-to-cart__buttons span.add-numero-items {
   padding: 2px 15px;
+  border-top: 2px solid var(--color-black);
+  border-bottom: 2px solid var(--color-black);
 }
 
 .add-to-cart__buttons span.add-menos,
 .add-to-cart__buttons span.add-mais {
   padding: 2px 7px;
+  cursor: pointer;
 }
 
 .add-to-cart__buttons span.add-mais {
@@ -158,11 +173,6 @@
   border: 2px solid var(--color-black);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-}
-
-.add-to-cart__buttons span.add-numero-items {
-  border-top: 2px solid var(--color-black);
-  border-bottom: 2px solid var(--color-black);
 }
 
 .btn-add-box {
@@ -179,7 +189,7 @@
   font-size: 16px;
   padding: 4px 10px;
   border-radius: 10px;
-  color: white;
+  color: var(--color-white);
   cursor: pointer;
 }
 
