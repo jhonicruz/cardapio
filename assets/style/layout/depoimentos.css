@@ -26,7 +26,7 @@
 
 .depoimentos__content__feedback {
   transition: 900ms;
-  animation: slide 900ms forwards;
+  animation: slide ease 900ms forwards;
 }
 
 @keyframes slide {
