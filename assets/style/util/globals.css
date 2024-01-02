@@ -72,3 +72,7 @@
     font-size: 1.3rem;
   }
 }
+
+.depoimentos__content__feedback.hidden {
+  display: none;
+}

@@ -24,6 +24,23 @@
   flex: 1 1 50%;
 }
 
+.depoimentos__content__feedback {
+  transition: 300ms;
+  animation: slide 500ms forwards;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .depoimentos__content__feedback__client {
   display: flex;
   gap: 2rem;
@@ -75,10 +92,12 @@
 .depoimentos__content__feedback__client__text {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex: 1 1 45%;
   height: auto;
-  padding: 1rem 0;
-  margin-right: 2rem;
+  padding: 2rem 0;
+
+  height: 150px;
 }
 
 .depoimentos__content__feedback__client__text span {
@@ -90,12 +109,13 @@
 .depoimentos__content__feedback__client__text #left {
   display: flex;
   justify-content: center;
+  align-self: flex-start;
 }
 
 .depoimentos__content__feedback__client__text #right {
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-self: flex-end;
 }
 
 .depoimentos__content__feedback__client__text p {
