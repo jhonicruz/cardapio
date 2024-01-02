@@ -3,9 +3,6 @@ export default function initMenuHamburguer() {}
 const btnMenu = document.querySelector('[data-toggle="collapse"]');
 const hamburguer = document.querySelector('[data-toggle="hamburguer"]');
 
-console.log(btnMenu);
-console.log(hamburguer);
-
 const events = ["click", "touch"];
 
 events.forEach((userEvents) => btnMenu.addEventListener(userEvents, handleClick));
