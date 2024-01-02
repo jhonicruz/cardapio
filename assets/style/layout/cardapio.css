@@ -70,6 +70,8 @@
   word-wrap: break-word;
   overflow: hidden;
   transition: all 100ms;
+
+  background-color: var(--color-white);
 }
 
 .cardapio__item__image {

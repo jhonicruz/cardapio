@@ -48,17 +48,6 @@
   line-height: 1.3;
 }
 
-.servicos__bg {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  height: 500px;
-  width: 100%;
-  background-image: url(../img/icone-tempero.png);
-  background-image: url("../../img/bg-icons-2.png");
-  z-index: -1;
-}
-
 @media (max-width: 600px) {
   .container.container-servicos {
     padding: 4rem 1rem;
