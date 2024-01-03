@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   position: fixed;
   left: 0;
   top: 0;
@@ -61,10 +61,11 @@
 }
 
 .titulo-carrinho {
-  padding: 2rem;
+  padding: initial;
   font-size: 1.8rem;
   font-family: "poppinsregular";
   color: var(--color-black);
+  background-color: tomato;
 }
 
 .etapas-numeros .line.checked {
@@ -92,8 +93,8 @@
   overflow-x: hidden;
   flex-direction: column;
   gap: 2rem;
-  padding: 0 1rem;
-  justify-content: center;
+  padding: 1rem;
+  justify-content: flex-start;
 }
 
 .produtos-container::-webkit-scrollbar {
@@ -122,7 +123,7 @@
 .produto-image {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .produto-image img {
@@ -141,7 +142,7 @@
   font-family: "poppinsmedium";
   color: rgb(68, 68, 68);
 
-  font-size: clamp(1.6rem, 1vw + 1rem, 2rem);
+  font-size: clamp(1.2rem, 1vw + 1rem, 2rem);
 }
 
 .produto-preco span {
@@ -171,7 +172,7 @@
 .total-infos {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .subtotal {
@@ -207,7 +208,7 @@
   font-size: 2.4rem;
   font-family: "poppinsbold";
   color: var(--color-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .total-botao {
@@ -217,4 +218,75 @@
 
 .btn-primary.btn-primary--yellow.button-total a {
   padding: 1rem 2.4rem;
+}
+
+@media (max-width: 466px) {
+  .modal-carrinho {
+    display: flex;
+    padding: initial;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.4rem;
+  }
+
+  .titulo-carrinho {
+    padding: initial;
+  }
+  .produto {
+    height: auto;
+    justify-content: space-between;
+  }
+
+  .produto-image {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.4rem;
+  }
+
+  .produto-image img {
+    width: 80px;
+  }
+
+  .produto-preco {
+    gap: 0.4rem;
+  }
+  /* 
+  .produto-preco h3 {
+    font-size: 1.6rem;
+  } */
+
+  .produtos-container {
+    height: 200px;
+    padding: 1rem 0;
+  }
+
+  /* .total {
+    display: none;
+  } */
+
+  .add-to-cart.add-to-cart-modal {
+    gap: 1.4rem;
+    justify-content: flex-end;
+  }
+
+  .total-infos {
+    gap: 1rem;
+  }
+  .total-infos .total-preco {
+    margin: 0;
+  }
+
+  .etapas {
+    padding: 1rem;
+  }
+
+  .etapas-numeros span {
+    width: 26px;
+    height: 26px;
+  }
+
+  .etapas-numeros .line {
+    width: 15px;
+    height: 2px;
+  }
 }
