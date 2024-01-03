@@ -7,6 +7,7 @@
 @import "./components/link-categories.css";
 @import "./components/go-to-start.css";
 @import "./components/bg.css";
+@import "./components/modal-carrinho.css";
 @import "./layout/header.css";
 @import "./layout/banner.css";
 @import "./layout/servicos.css";

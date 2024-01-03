@@ -76,3 +76,7 @@
 .depoimentos__content__feedback.hidden {
   display: none;
 }
+
+.hidden {
+  display: none !important;
+}

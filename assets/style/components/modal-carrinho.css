@@ -1,0 +1,220 @@
+.modal-carrinho {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--color-white);
+  padding: 1rem 2rem;
+  z-index: 999;
+  gap: 1rem;
+}
+
+.modal-carrinho.hidden {
+  display: none;
+}
+
+.etapas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+
+  padding: 1rem 2rem 0;
+  background-color: tomato;
+}
+
+.etapas-numeros {
+  display: flex;
+
+  position: relative;
+
+  width: max-content;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.etapas-numeros span {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+}
+
+.etapas-numeros span.checked {
+  background-color: var(--color-primary);
+}
+
+.etapas-numeros .line {
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: lightgrey;
+  border-radius: initial;
+}
+
+.titulo-carrinho {
+  padding: 2rem;
+  font-size: 1.8rem;
+  font-family: "poppinsregular";
+  color: var(--color-black);
+}
+
+.etapas-numeros .line.checked {
+  background-color: var(--color-primary);
+}
+
+.btn-primary.btn-primary--fechar {
+  height: 35px;
+}
+
+.btn-primary.btn-primary--fechar a {
+  font-size: 18px;
+}
+
+.modal-carrinho img {
+  width: 100px;
+}
+
+.produtos-container {
+  background-color: tomato;
+  height: 170px;
+  align-items: center;
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+  justify-content: center;
+}
+
+.produtos-container::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.produtos-container::-webkit-scrollbar-thumb {
+  background-color: var(--color-white);
+}
+
+.produtos-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.produto {
+  display: flex;
+  background-color: greenyellow;
+  height: 80%;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.produto-image {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.produto-image img {
+  border-radius: 8px;
+}
+
+.produto-preco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-star;
+  gap: 1.4rem;
+}
+
+.produto-preco h3 {
+  font-size: 2rem;
+  font-family: "poppinsmedium";
+  color: rgb(68, 68, 68);
+
+  font-size: clamp(1.6rem, 1vw + 1rem, 2rem);
+}
+
+.produto-preco span {
+  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 1vw + 1rem, 2.4rem);
+  color: var(--color-primary);
+  font-family: "poppinsbold", sans-serif;
+}
+
+.add-to-cart.add-to-cart-modal {
+  display: flex;
+}
+
+.add-to-cart.add-to-cart-modal .btn-add a {
+  background-color: #e74c3c;
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  padding: 0 2rem;
+  text-align: right;
+}
+
+.total-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.subtotal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9;
+}
+.subtotal span:first-child {
+  font-size: 1.6rem;
+  font-family: "poppinsregular";
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.subtotal .entrega i {
+  margin-right: 5px;
+}
+
+.subtotal .entrega {
+  font-size: 1.6rem;
+  font-family: "poppinsregular";
+  color: lightslategray;
+}
+
+.total-infos .total-preco span {
+  font-size: 2rem;
+  color: var(--color-black);
+  font-family: "poppinsbold", sans-serif;
+  margin-right: 1rem;
+}
+
+.total-infos .total-preco {
+  font-size: 2.4rem;
+  font-family: "poppinsbold";
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.total-botao {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary.btn-primary--yellow.button-total a {
+  padding: 1rem 2.4rem;
+}
