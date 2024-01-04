@@ -332,7 +332,7 @@
   width: 100%;
   height: auto;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 0.8rem;
 }
 
 .grid-form input,
@@ -344,7 +344,7 @@
   grid-column: 1/-1;
 }
 .cep input {
-  width: 300px !important;
+  max-width: 300px !important;
 }
 
 .control-form input,
@@ -358,20 +358,16 @@
   font-family: "poppinsregular", sans-serif;
 }
 
-.control-form select {
-  width: 80%;
-}
-
 .control-form label {
   width: 100%;
 }
 
 .control-form input {
-  width: 100%;
+  width: 94%;
 }
 
 .control-form select {
-  width: 100%;
+  width: 94%;
   text-align: center;
 }
 
