@@ -703,14 +703,17 @@
                 </div>
       
             </div>
-            <div class="titulo-carrinho">
+            <div class="titulo-carrinho hidden">
               <h4>Seu Carrinho</h4>
+            </div>
+            <div class="titulo-carrinho">
+              <h4>Endereço de Entrega</h4>
             </div>
           </div>
     
          
     
-          <div class="produtos-container ">
+          <div class="produtos-container scrollContainer hidden">
     
             <div class="produto ">
     
@@ -949,6 +952,82 @@
               </div>
             </div> -->
     
+          </div>
+
+          <div class="local-entrega scrollContainer">
+            <form action="#" method="post" class="grid-form">
+
+              <div class="cep control-form" >
+                <label for="cep">CEP:
+                  <input type="text" id="cep" name="cep" autofocus class="shadow-8dp">
+
+                </label>
+              </div>
+              <div class="endereco control-form" >
+                <label for="endereco" >Endereço:
+                  <input type="text" id="endereco" name="endereco" autofocus class="shadow-8dp">
+                </label>
+              </div>
+              <div class="bairro control-form" >
+                <label for="bairro">Bairro:
+                  <input type="text" id="bairro" name="bairro" autofocus class="shadow-8dp">
+                </label>
+              </div>
+              <div class="numero control-form" >
+                <label for="numero">Número:
+                  <input type="text" id="numero" name="numero" autofocus class="shadow-8dp">
+                </label>
+              </div>
+              <div class="cidade control-form" >
+                <label for="cidade">Cidade:
+                  <input type="text" id="cidade" name="cidade" autofocus class="shadow-8dp">
+                </label>
+              </div>
+              <div class="complemento control-form" >
+                <label for="complemento">Complemento:
+                  <input type="text" id="complemento" name="complemento" autofocus class="shadow-8dp">
+                </label>
+              </div>
+              <div class="uf control-form" >
+                <label for="uf">UF:
+                  <select name="uf" id="uf" class="shadow-8dp">
+
+                    <option value="">...</option>
+                    <option value="AC">	AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">	SP</option>
+                    <option value="SE">	SE</option>
+                    <option value="TO">	TO</option>
+                  </select>
+                </label>
+              </div>
+            
+             
+
+            </form>
+
           </div>
     
           <div class="total ">
