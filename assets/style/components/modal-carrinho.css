@@ -254,33 +254,22 @@
     height: auto;
     justify-content: space-between;
   }
-
   .produto-image {
     flex-direction: column;
     text-align: center;
     gap: 0.4rem;
   }
-
   .produto-image img {
     width: 80px;
   }
-
   .produto-preco {
     gap: 0.4rem;
   }
-  /* 
-  .produto-preco h3 {
-    font-size: 1.6rem;
-  } */
 
   .produtos-container {
     height: 100%;
     padding: 1rem 0;
   }
-
-  /* .total {
-    display: none;
-  } */
 
   .add-to-cart.add-to-cart-modal {
     gap: 1.4rem;
