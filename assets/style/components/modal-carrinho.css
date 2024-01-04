@@ -97,7 +97,7 @@
 }
 
 .produtos-container {
-  height: 220px;
+  height: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -274,7 +274,7 @@
   } */
 
   .produtos-container {
-    height: 200px;
+    height: 100%;
     padding: 1rem 0;
   }
 
