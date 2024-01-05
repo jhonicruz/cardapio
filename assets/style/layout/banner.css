@@ -1,9 +1,15 @@
 .banner {
   display: flex;
-  height: 100%;
+  height: calc(100vh - 12rem);
   padding: 4rem 0;
   flex-wrap: wrap;
+  align-items: center;
 }
+
+.container.container--banner {
+  height: 100%;
+}
+
 .banner__content,
 .banner__images {
   flex: 0 1 50%;
@@ -22,10 +28,6 @@
   gap: 2rem;
   margin-bottom: 3rem;
 }
-.banner__images {
-  height: 100%;
-  background-color: tom;
-}
 
 .banner__content .banner__content__text h1 {
   line-height: 1.2;
@@ -43,12 +45,16 @@
 .banner__images {
   width: 100%;
   height: 100%;
+
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .banner__images .banner__images__shape {
   position: absolute;
-  top: 20px;
+  top: 50%;
+  transform: translateY(calc(-50% - 30px));
   right: 0;
   width: 450px;
   height: 450px;
@@ -57,11 +63,10 @@
 }
 
 .banner__images img {
-  position: absolute;
-  top: 50px;
-  left: -80px;
+  position: relative;
+  left: -20px;
   z-index: 1;
-  width: 500px;
+  min-width: 400px;
 }
 
 .banner__images .depoimento {
@@ -70,7 +75,8 @@
   font-size: 14px;
   position: absolute;
   right: 24px;
-  bottom: -25px;
+  top: 50%;
+  transform: translateY(calc(-50% + 180px));
   border-radius: 20px;
   padding: 15px 20px;
   z-index: 2;
@@ -86,13 +92,6 @@
   bottom: 15px;
   position: absolute;
 }
-
-/* .banner__content__social-icons a {
-  width: 48px;
-  height: 48px;
-  background-color: tomato;
-} */
-
 .banner__content__social-icons {
   display: flex;
   gap: 3rem;
@@ -129,6 +128,11 @@
 
   .banner__images {
     display: none;
+  }
+
+  .banner__images .banner__images__shape {
+    width: 350px;
+    height: 350px;
   }
 }
 
