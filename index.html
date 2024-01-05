@@ -43,7 +43,7 @@
           </ul>
         </nav>
         <div class="container-cart">
-          <button class="btn-primary shadow-8dp">
+          <button class="btn-primary shadow-8dp" data-modal="btn-meuCarrinho">
             <a href="#">Meu carrinho <i class="fa-solid fa-bag-shopping"></i></a>
           </button>
         </div>
@@ -683,7 +683,7 @@
     <span class="go-to-start shadow-12dp" data-gotostart><i class="fas fa-arrow-up"></i></span>
 
 
-    <div class="modal-carrinho hidden">
+    <div class="modal-carrinho hidden" data-modal="modal">
         <div class="container container--modal">
           <div class="etapas">
           
@@ -691,29 +691,29 @@
               <div class="etapas-numeros">
                 <span class="shadow-8dp checked">1</span>
                 <span class="line checked"></span>
-                <span class="shadow-8dp ">2</span>
-                <span class="line "></span>
+                <span class="shadow-8dp " data-modal="step">2</span>
+                <span class="line " data-modal="line"></span>
                   <span class="shadow-8dp">3</span>
                 </div>
       
                 <div class="botao-fechar">
-                  <button class="btn-primary btn-primary--fechar shadow-8dp">
+                  <button class="btn-primary btn-primary--fechar shadow-8dp" data-modal="btn-fechar">
                     <a href="#">Fechar</a>
                   </button>
                 </div>
       
             </div>
-            <div class="titulo-carrinho hidden">
+            <div class="titulo-carrinho " data-modal="titulo-produtos">
               <h4>Seu Carrinho</h4>
             </div>
-            <div class="titulo-carrinho">
+            <div class="titulo-carrinho hidden" data-modal="titulo-entrega">
               <h4>Endereço de Entrega</h4>
             </div>
           </div>
     
          
     
-          <div class="produtos-container scrollContainer hidden">
+          <div class="produtos-container scrollContainer  " data-modal="produtos">
     
             <div class="produto ">
     
@@ -1006,7 +1006,7 @@
     
           </div>
 
-          <div class="local-entrega scrollContainer ">
+          <div class="local-entrega scrollContainer hidden" data-modal="entrega">
             <form action="#" method="post" class="grid-form">
 
               <div class="cep control-form" >
@@ -1093,13 +1093,13 @@
              
     
               <div class="total-botao">
-                <button class="btn-primary  button-total shadow-8dp hidden">
+                <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar">
                   <a href="#">Voltar</a>
                 </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp ">
+                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar">
                   <a href="#">Revisar Pedido</a>
                 </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden">
+                <button class="btn-primary btn-primary--yellow button-total shadow-8dp " data-modal="btn-continuar">
                   <a href="#">Continuar</a>
                 </button>
              
