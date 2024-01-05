@@ -4,12 +4,10 @@
   padding: 4rem 0;
   flex-wrap: wrap;
 }
-
 .banner__content,
 .banner__images {
   flex: 0 1 50%;
 }
-
 .banner__content {
   display: flex;
   flex-direction: column;
@@ -17,7 +15,6 @@
   height: 100%;
   justify-content: center;
 }
-
 .banner__content .banner__button {
   display: flex;
   justify-content: flex-start;
@@ -25,7 +22,6 @@
   gap: 2rem;
   margin-bottom: 3rem;
 }
-
 .banner__images {
   height: 100%;
   background-color: tom;
