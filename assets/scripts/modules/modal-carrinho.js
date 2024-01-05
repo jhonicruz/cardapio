@@ -22,13 +22,15 @@ const tituloEntrega = document.querySelector('[data-modal="titulo-entrega"]');
 const step = document.querySelector('[data-modal="step"]');
 const line = document.querySelector('[data-modal="line"]');
 
+// Classe
+
+const nomeClasse = "hidden";
+
 btnMeuCarrinho.addEventListener("click", abrirModal);
 
-function abrirModal(e) {
-  e.preventDefault();
-
-  modalContainer.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+function abrirModal() {
+  modalContainer.classList.remove(nomeClasse);
+  document.body.style.overflow = nomeClasse;
   fecharModal();
   continuar();
   voltar();
@@ -36,31 +38,35 @@ function abrirModal(e) {
 
 function fecharModal() {
   btnFechar.addEventListener("click", () => {
-    modalContainer.classList.add("hidden");
+    modalContainer.classList.add(nomeClasse);
     document.body.style.overflow = "auto";
   });
 }
 
 function continuar() {
   btnContinuar.addEventListener("click", () => {
-    produtosContainer.classList.add("hidden");
-    tituloProdutos.classList.add("hidden");
+    produtosContainer.classList.add(nomeClasse);
+    tituloProdutos.classList.add(nomeClasse);
     step.classList.add("checked");
     line.classList.add("checked");
-    entregaContainer.classList.remove("hidden");
-    tituloEntrega.classList.remove("hidden");
-    btnVoltar.classList.remove("hidden");
+    entregaContainer.classList.remove(nomeClasse);
+    tituloEntrega.classList.remove(nomeClasse);
+    btnVoltar.classList.remove(nomeClasse);
+    btnRevisar.classList.remove(nomeClasse);
+    btnContinuar.classList.add(nomeClasse);
   });
 }
 
 function voltar() {
   btnVoltar.addEventListener("click", () => {
-    produtosContainer.classList.remove("hidden");
-    tituloProdutos.classList.remove("hidden");
+    produtosContainer.classList.remove(nomeClasse);
+    tituloProdutos.classList.remove(nomeClasse);
     step.classList.remove("checked");
     line.classList.remove("checked");
-    entregaContainer.classList.add("hidden");
-    tituloEntrega.classList.add("hidden");
-    btnVoltar.classList.add("hidden");
+    entregaContainer.classList.add(nomeClasse);
+    tituloEntrega.classList.add(nomeClasse);
+    btnVoltar.classList.add(nomeClasse);
+    btnContinuar.classList.remove(nomeClasse);
+    btnRevisar.classList.add(nomeClasse);
   });
 }
