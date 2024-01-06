@@ -689,7 +689,7 @@
     <span class="go-to-start shadow-12dp" data-gotostart><i class="fas fa-arrow-up"></i></span>
 
 
-    <div class="modal-carrinho hidden" data-modal="modal">
+    <section class="modal-carrinho" data-modal="modal">
         <div class="container container--modal">
           <div class="etapas">
           
@@ -715,11 +715,14 @@
             <div class="titulo-carrinho hidden" data-modal="titulo-entrega">
               <h4>Endereço de Entrega</h4>
             </div>
+            <div class="titulo-carrinho hidden" data-modal="titulo-resumo">
+              <h4>Resumo do Pedido</h4>
+            </div>
           </div>
     
          
     
-          <div class="produtos-container scrollContainer  " data-modal="produtos">
+          <div class="produtos-container scrollContainer hidden " data-modal="produtos">
     
             <div class="produto ">
     
@@ -1087,6 +1090,127 @@
             </form>
 
           </div>
+
+          <div class="resumo-pedido scrollContainer" data-modal="resumo">
+            <span>Itens do Pedido:</span>
+
+            <div class="produto produto-resumo">
+    
+              <div class="produto-image produto-image--resumo">
+                <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
+    
+                <div class=" produto-preco">
+                  <h3>Gramercy Tavern</h3>
+                  <span>R$ 99,00</span>
+                </div>
+    
+              </div>
+
+              <div class="produto-quantidade">
+                <span>X 1</span>
+              </div>
+            </div>
+            <div class="produto produto-resumo ">
+    
+              <div class="produto-image produto-image--resumo">
+                <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
+    
+                <div class=" produto-preco">
+                  <h3>Gramercy Tavern</h3>
+                  <span>R$ 99,00</span>
+                </div>
+    
+              </div>
+
+              <div class="produto-quantidade">
+                <span>X 1</span>
+              </div>
+            </div>
+            <div class="produto produto-resumo ">
+    
+              <div class="produto-image produto-image--resumo">
+                <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
+    
+                <div class=" produto-preco">
+                  <h3>Gramercy Tavern</h3>
+                  <span>R$ 99,00</span>
+                </div>
+    
+              </div>
+
+              <div class="produto-quantidade">
+                <span>X 1</span>
+              </div>
+            </div>
+            <div class="produto produto-resumo ">
+    
+              <div class="produto-image produto-image--resumo">
+                <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
+    
+                <div class=" produto-preco">
+                  <h3>Gramercy Tavern</h3>
+                  <span>R$ 99,00</span>
+                </div>
+    
+              </div>
+
+              <div class="produto-quantidade">
+                <span>X 1</span>
+              </div>
+            </div>
+            <div class="produto produto-resumo ">
+    
+              <div class="produto-image produto-image--resumo">
+                <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
+    
+                <div class=" produto-preco">
+                  <h3>Gramercy Tavern</h3>
+                  <span>R$ 99,00</span>
+                </div>
+    
+              </div>
+
+              <div class="produto-quantidade">
+                <span>X 1</span>
+              </div>
+            </div>
+            <div class="produto produto-resumo ">
+    
+              <div class="produto-image produto-image--resumo">
+                <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
+    
+                <div class=" produto-preco">
+                  <h3>Gramercy Tavern</h3>
+                  <span>R$ 99,00</span>
+                </div>
+    
+              </div>
+
+              <div class="produto-quantidade">
+                <span>X 1</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="resumo-endereco">
+           <p class="titulo-carrinho ">Local da entrega</p> 
+           <div class="resumo-endereco__dados">
+            <span><i class="fa-solid fa-location-dot"></i></span>
+            <div class="dados">
+              <p>
+                <span class="nome-rua">Rua Ramiro Monteiro, </span> 
+                <span class="numero-casa">445, </span> 
+                <span class="nome-bairro">Parque Recreio</span>
+              </p>
+              <p>
+                <span class="nome-cidade">Crato-ce / </span>
+                <span>63118020</span>
+              </p>
+            </div>
+           </div>
+          </div>
+          
     
           <div class="total ">
             <div class="total-infos">
@@ -1114,12 +1238,12 @@
     
             </div>
           </div>
+  
     
         </div>
-   
-    
 
-    </div>
+     
+    </section>
 
 
     <footer class="footer" id="footer">
