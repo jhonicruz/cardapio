@@ -29,9 +29,13 @@ export default function initModalCarrinho() {
   const classeHidden = "hidden"; // Para mostrar ou ocultar o modal do Carrinho
   const classechecked = "checked"; // Para fazer verificação dos steps - passo a passo da compra
 
-  // Evento principal
+  // Eventos Lista
 
-  btnMeuCarrinho.addEventListener("click", abrirModal);
+  const eventos = ["click", "touchstart"];
+
+  eventos.forEach((eventoUsuario) => btnMeuCarrinho.addEventListener(eventoUsuario, abrirModal));
+
+  // btnMeuCarrinho.addEventListener("click", abrirModal);
 
   function abrirModal() {
     const constainsClassOpen =
@@ -56,12 +60,14 @@ export default function initModalCarrinho() {
   }
 
   function continuar() {
-    btnContinuar.addEventListener("click", () => {
-      adicionarClasse([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
-      adicionarClasse([step, line], classechecked);
+    eventos.forEach((eventoUsuario) =>
+      btnContinuar.addEventListener(eventoUsuario, () => {
+        adicionarClasse([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
+        adicionarClasse([step, line], classechecked);
 
-      removerClasse([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
-    });
+        removerClasse([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
+      })
+    );
   }
 
   function voltar() {
