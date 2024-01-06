@@ -79,22 +79,23 @@
 @media (max-width: 960px) {
   #menu {
     display: none;
-    opacity: 0;
     flex-direction: column;
     position: fixed;
     align-items: end;
+    justify-content: flex-start;
+    opacity: 0;
     width: 100%;
     height: calc(100vh - 12rem);
     top: 12rem;
     left: 100%;
-    background-color: var(--color-background);
     z-index: 9999;
     padding: 2.4rem 0;
-    justify-content: flex-start;
-    gap: 2.4rem;
-    animation: showMenu 300ms ease forwards;
+    gap: 1.4rem;
     transition: all 300ms ease;
     overflow-y: hidden;
+    background: var(--color-background) url("../../img/icone-clientes.svg") no-repeat bottom left /
+      40%;
+    animation: showMenu 300ms ease forwards;
   }
 
   #menu.open {
