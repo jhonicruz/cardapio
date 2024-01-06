@@ -22,7 +22,6 @@ export default function initScrollSuave() {
       if (constainsClassOpen) {
         menuContainer.classList.remove("open");
         toggleMenu.classList.remove("open");
-        document.body.style.overflow = "auto";
       }
 
       // toggleMenu.classList.toggle("open");

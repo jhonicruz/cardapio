@@ -34,9 +34,11 @@ export default function initModalCarrinho() {
       menuContainer.classList.remove("open");
       toggleMenu.classList.remove("open");
     }
-
     modalContainer.classList.remove(nomeClasse);
-    document.body.style.overflow = nomeClasse;
+
+    if ((document.body.style.overflow = "auto")) {
+      document.body.style.overflow = nomeClasse;
+    }
 
     fecharModal();
     continuar();
