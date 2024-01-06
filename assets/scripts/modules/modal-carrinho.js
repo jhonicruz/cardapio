@@ -135,5 +135,6 @@ export default function initModalCarrinho() {
     voltarInicio,
     voltarMeio,
     selecionarElementoDom,
+    revisarPedido,
   };
 }

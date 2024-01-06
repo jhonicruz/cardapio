@@ -1,5 +1,5 @@
 import initModalCarrinho from "./modal-carrinho.js";
-const { fecharModal, continuar, voltar } = initModalCarrinho();
+const { fecharModal, continuar, voltarMeio, voltarInicio, revisarPedido } = initModalCarrinho();
 
 export default function initScrollSuave() {
   const links = document.querySelectorAll("[data-menu='scroll'] li");
@@ -31,8 +31,10 @@ export default function initScrollSuave() {
         modalContainer.classList.remove("hidden");
         document.body.style.overflow = "hidden";
         continuar();
-        voltar();
+        voltarMeio();
+        voltarInicio();
         fecharModal();
+        revisarPedido();
       } else {
         const sections = document.querySelector(target);
         const topSections = sections.getBoundingClientRect().top;
