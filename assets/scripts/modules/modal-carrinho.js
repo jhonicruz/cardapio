@@ -1,33 +1,35 @@
 export default function initModalCarrinho() {
-  const modalContainer = document.querySelector('[data-modal="modal"]');
-
-  // Buttons
-  const btnMeuCarrinho = document.querySelector('[data-modal="btn-meuCarrinho"]');
-  const btnFechar = document.querySelector('[data-modal="btn-fechar"]');
-  const btnVoltar = document.querySelector('[data-modal="btn-voltar"]');
-  const btnRevisar = document.querySelector('[data-modal="btn-revisar"]');
-  const btnContinuar = document.querySelector('[data-modal="btn-continuar"]');
-  const toggleMenu = document.querySelector('[data-toggle="collapse"]');
+  function selecionarElementoDom(elementoDom) {
+    return document.querySelector(elementoDom);
+  }
 
   // containers
-  const produtosContainer = document.querySelector('[data-modal="produtos"]');
-  const entregaContainer = document.querySelector('[data-modal="entrega"]');
-  const menuContainer = document.querySelector("#menu");
+  const modalContainer = selecionarElementoDom('[data-modal="modal"]');
+  const produtosContainer = selecionarElementoDom('[data-modal="produtos"]');
+  const entregaContainer = selecionarElementoDom('[data-modal="entrega"]');
+  const menuContainer = selecionarElementoDom("#menu");
 
   // titulos
-
-  const tituloProdutos = document.querySelector('[data-modal="titulo-produtos"]');
-  const tituloEntrega = document.querySelector('[data-modal="titulo-entrega"]');
+  const tituloProdutos = selecionarElementoDom('[data-modal="titulo-produtos"]');
+  const tituloEntrega = selecionarElementoDom('[data-modal="titulo-entrega"]');
 
   // steps
+  const step = selecionarElementoDom('[data-modal="step"]');
+  const line = selecionarElementoDom('[data-modal="line"]');
 
-  const step = document.querySelector('[data-modal="step"]');
-  const line = document.querySelector('[data-modal="line"]');
+  // Buttons
+  const btnMeuCarrinho = selecionarElementoDom('[data-modal="btn-meuCarrinho"]');
+  const btnFechar = selecionarElementoDom('[data-modal="btn-fechar"]');
+  const btnVoltar = selecionarElementoDom('[data-modal="btn-voltar"]');
+  const btnRevisar = selecionarElementoDom('[data-modal="btn-revisar"]');
+  const btnContinuar = selecionarElementoDom('[data-modal="btn-continuar"]');
+  const toggleMenu = selecionarElementoDom('[data-toggle="collapse"]');
 
   // Classes css
-
   const classeHidden = "hidden"; // Para mostrar ou ocultar o modal do Carrinho
   const classechecked = "checked"; // Para fazer verificação dos steps - passo a passo da compra
+
+  // Evento principal
 
   btnMeuCarrinho.addEventListener("click", abrirModal);
 
@@ -55,7 +57,9 @@ export default function initModalCarrinho() {
 
   function continuar() {
     btnContinuar.addEventListener("click", () => {
-      adicionarClasse([produtosContainer, tituloProdutos, step, line, btnContinuar], classeHidden);
+      adicionarClasse([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
+      adicionarClasse([step, line], classechecked);
+
       removerClasse([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
     });
   }
@@ -64,6 +68,7 @@ export default function initModalCarrinho() {
     btnVoltar.addEventListener("click", () => {
       adicionarClasse([entregaContainer, tituloEntrega, btnRevisar, btnVoltar], classeHidden);
       removerClasse([produtosContainer, tituloProdutos, step, line, btnContinuar], classeHidden);
+      removerClasse([step, line], classechecked);
     });
   }
 
@@ -82,5 +87,6 @@ export default function initModalCarrinho() {
     fecharModal,
     continuar,
     voltar,
+    selecionarElementoDom,
   };
 }
