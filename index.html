@@ -689,17 +689,17 @@
     <span class="go-to-start shadow-12dp" data-gotostart><i class="fas fa-arrow-up"></i></span>
 
 
-    <section class="modal-carrinho" data-modal="modal">
+    <section class="modal-carrinho hidden"  data-modal="modal">
         <div class="container container--modal">
           <div class="etapas">
           
             <div class="etapas-container">
               <div class="etapas-numeros">
                 <span class="shadow-8dp checked">1</span>
-                <span class="line checked"></span>
-                <span class="shadow-8dp " data-modal="step">2</span>
-                <span class="line " data-modal="line"></span>
-                  <span class="shadow-8dp">3</span>
+                <span class="line" data-modal="line1"></span>
+                <span class="shadow-8dp " data-modal="step2">2</span>
+                <span class="line " data-modal="line2"></span>
+                  <span class="shadow-8dp" data-modal="step3">3</span>
                 </div>
       
                 <div class="botao-fechar">
@@ -722,7 +722,7 @@
     
          
     
-          <div class="produtos-container scrollContainer hidden " data-modal="produtos">
+          <div class="produtos-container scrollContainer  " data-modal="produtos">
     
             <div class="produto ">
     
@@ -1091,7 +1091,7 @@
 
           </div>
 
-          <div class="resumo-pedido scrollContainer" data-modal="resumo">
+          <div class="resumo-pedido scrollContainer hidden" data-modal="resumo">
             <span class="titulo-carrinho ">Itens do Pedido:</span>
 
             <div class="produto produto-resumo">
@@ -1193,7 +1193,7 @@
 
           </div>
 
-          <div class="resumo-endereco">
+          <div class="resumo-endereco hidden">
            <p class="titulo-carrinho ">Local da entrega:</p> 
            <div class="resumo-endereco__dados">
             <span><i class="fa-solid fa-location-dot"></i></span>
@@ -1226,11 +1226,17 @@
                 <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar">
                   <a href="#">Voltar</a>
                 </button>
+                <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltarRevisao">
+                  <a href="#">Voltar</a>
+                </button>
                 <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar">
                   <a href="#">Revisar Pedido</a>
                 </button>
                 <button class="btn-primary btn-primary--yellow button-total shadow-8dp " data-modal="btn-continuar">
                   <a href="#">Continuar</a>
+                </button>
+                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-enviar">
+                  <a href="#">Enviar</a>
                 </button>
              
     

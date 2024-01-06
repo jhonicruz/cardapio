@@ -8,21 +8,27 @@ export default function initModalCarrinho() {
   const produtosContainer = selecionarElementoDom('[data-modal="produtos"]');
   const entregaContainer = selecionarElementoDom('[data-modal="entrega"]');
   const menuContainer = selecionarElementoDom("#menu");
+  const resumoPedido = selecionarElementoDom("[data-modal='resumo']");
 
   // titulos
   const tituloProdutos = selecionarElementoDom('[data-modal="titulo-produtos"]');
   const tituloEntrega = selecionarElementoDom('[data-modal="titulo-entrega"]');
+  const tituloResumo = selecionarElementoDom('[data-modal="titulo-resumo"]');
 
   // steps
-  const step = selecionarElementoDom('[data-modal="step"]');
-  const line = selecionarElementoDom('[data-modal="line"]');
+  const line1 = selecionarElementoDom('[data-modal="line1"]');
+  const line2 = selecionarElementoDom('[data-modal="line2"]');
+  const step2 = selecionarElementoDom('[data-modal="step2"]');
+  const step3 = selecionarElementoDom('[data-modal="step3"]');
 
   // Buttons
   const btnMeuCarrinho = selecionarElementoDom('[data-modal="btn-meuCarrinho"]');
   const btnFechar = selecionarElementoDom('[data-modal="btn-fechar"]');
+  const btnContinuar = selecionarElementoDom('[data-modal="btn-continuar"]');
   const btnVoltar = selecionarElementoDom('[data-modal="btn-voltar"]');
   const btnRevisar = selecionarElementoDom('[data-modal="btn-revisar"]');
-  const btnContinuar = selecionarElementoDom('[data-modal="btn-continuar"]');
+  const btnVoltarRevisao = selecionarElementoDom('[data-modal="btn-voltarRevisao"]');
+  const btnEnviar = selecionarElementoDom('[data-modal="btn-enviar"]');
   const toggleMenu = selecionarElementoDom('[data-toggle="collapse"]');
 
   // Classes css
@@ -49,7 +55,9 @@ export default function initModalCarrinho() {
 
     fecharModal();
     continuar();
-    voltar();
+    voltarInicio();
+    revisarPedido();
+    voltarMeio();
   }
 
   function fecharModal() {
@@ -62,28 +70,60 @@ export default function initModalCarrinho() {
   function continuar() {
     eventos.forEach((eventoUsuario) =>
       btnContinuar.addEventListener(eventoUsuario, () => {
-        adicionarClasse([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
-        adicionarClasse([step, line], classechecked);
-
-        removerClasse([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
+        ocultarElementos([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
+        mostrarElementos([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
+        mostrarEtapas([step2, line1], classechecked);
       })
     );
   }
 
-  function voltar() {
+  function voltarInicio() {
     btnVoltar.addEventListener("click", () => {
-      adicionarClasse([entregaContainer, tituloEntrega, btnRevisar, btnVoltar], classeHidden);
-      removerClasse([produtosContainer, tituloProdutos, step, line, btnContinuar], classeHidden);
-      removerClasse([step, line], classechecked);
+      ocultarElementos([entregaContainer, tituloEntrega, btnRevisar, btnVoltar], classeHidden);
+      mostrarElementos([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
+      ocultarEtapas([step2, line1], classechecked);
     });
   }
 
-  function adicionarClasse(alvos, classe) {
+  function voltarMeio() {
+    btnVoltarRevisao.addEventListener("click", () => {
+      ocultarElementos([resumoPedido, tituloResumo, btnVoltarRevisao, btnEnviar], classeHidden);
+      mostrarElementos([entregaContainer, tituloEntrega, btnRevisar, btnVoltar], classeHidden);
+      ocultarEtapas([step3, line2], classechecked);
+    });
+
+    // btnVoltarRevisao
+  }
+
+  function revisarPedido() {
+    eventos.forEach((eventoUsuario) =>
+      btnRevisar.addEventListener(eventoUsuario, () => {
+        ocultarElementos([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
+        mostrarElementos([resumoPedido, tituloResumo, btnVoltarRevisao, btnEnviar], classeHidden);
+
+        mostrarEtapas([step3, line2], classechecked);
+      })
+    );
+  }
+
+  function ocultarElementos(alvos, classe) {
     alvos.forEach((alvo) => {
       alvo.classList.add(classe);
     });
   }
-  function removerClasse(alvos, classe) {
+  function mostrarElementos(alvos, classe) {
+    alvos.forEach((alvo) => {
+      alvo.classList.remove(classe);
+    });
+  }
+
+  function mostrarEtapas(alvos, classe) {
+    alvos.forEach((alvo) => {
+      alvo.classList.add(classe);
+    });
+  }
+
+  function ocultarEtapas(alvos, classe) {
     alvos.forEach((alvo) => {
       alvo.classList.remove(classe);
     });
@@ -92,7 +132,8 @@ export default function initModalCarrinho() {
   return {
     fecharModal,
     continuar,
-    voltar,
+    voltarInicio,
+    voltarMeio,
     selecionarElementoDom,
   };
 }
