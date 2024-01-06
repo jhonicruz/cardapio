@@ -15,6 +15,7 @@ export default function initModalCarrinho() {
   const menuContainer = document.querySelector("#menu");
 
   // titulos
+
   const tituloProdutos = document.querySelector('[data-modal="titulo-produtos"]');
   const tituloEntrega = document.querySelector('[data-modal="titulo-entrega"]');
 
@@ -23,22 +24,22 @@ export default function initModalCarrinho() {
   const step = document.querySelector('[data-modal="step"]');
   const line = document.querySelector('[data-modal="line"]');
 
-  // Classe
+  // Classes css
 
-  const nomeClasse = "hidden";
+  const classeHidden = "hidden"; // Para mostrar ou ocultar o modal do Carrinho
+  const classechecked = "checked"; // Para fazer verificação dos steps - passo a passo da compra
 
   btnMeuCarrinho.addEventListener("click", abrirModal);
 
   function abrirModal() {
-    if (menuContainer.classList.contains("open") && toggleMenu.classList.contains("open")) {
+    const constainsClassOpen =
+      menuContainer.classList.contains("open") && toggleMenu.classList.contains("open");
+
+    if (constainsClassOpen) {
       menuContainer.classList.remove("open");
       toggleMenu.classList.remove("open");
     }
-    modalContainer.classList.remove(nomeClasse);
-
-    if ((document.body.style.overflow = "auto")) {
-      document.body.style.overflow = nomeClasse;
-    }
+    modalContainer.classList.remove(classeHidden);
 
     fecharModal();
     continuar();
@@ -47,36 +48,39 @@ export default function initModalCarrinho() {
 
   function fecharModal() {
     btnFechar.addEventListener("click", () => {
-      modalContainer.classList.add(nomeClasse);
+      modalContainer.classList.add(classeHidden);
       document.body.style.overflow = "auto";
     });
   }
 
   function continuar() {
     btnContinuar.addEventListener("click", () => {
-      produtosContainer.classList.add(nomeClasse);
-      tituloProdutos.classList.add(nomeClasse);
-      step.classList.add("checked");
-      line.classList.add("checked");
-      entregaContainer.classList.remove(nomeClasse);
-      tituloEntrega.classList.remove(nomeClasse);
-      btnVoltar.classList.remove(nomeClasse);
-      btnRevisar.classList.remove(nomeClasse);
-      btnContinuar.classList.add(nomeClasse);
+      adicionarClasse([produtosContainer, tituloProdutos, step, line, btnContinuar], classeHidden);
+      removerClasse([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
     });
   }
 
   function voltar() {
     btnVoltar.addEventListener("click", () => {
-      produtosContainer.classList.remove(nomeClasse);
-      tituloProdutos.classList.remove(nomeClasse);
-      step.classList.remove("checked");
-      line.classList.remove("checked");
-      entregaContainer.classList.add(nomeClasse);
-      tituloEntrega.classList.add(nomeClasse);
-      btnVoltar.classList.add(nomeClasse);
-      btnContinuar.classList.remove(nomeClasse);
-      btnRevisar.classList.add(nomeClasse);
+      adicionarClasse([entregaContainer, tituloEntrega, btnRevisar, btnVoltar], classeHidden);
+      removerClasse([produtosContainer, tituloProdutos, step, line, btnContinuar], classeHidden);
     });
   }
+
+  function adicionarClasse(alvos, classe) {
+    alvos.forEach((alvo) => {
+      alvo.classList.add(classe);
+    });
+  }
+  function removerClasse(alvos, classe) {
+    alvos.forEach((alvo) => {
+      alvo.classList.remove(classe);
+    });
+  }
+
+  return {
+    fecharModal,
+    continuar,
+    voltar,
+  };
 }
