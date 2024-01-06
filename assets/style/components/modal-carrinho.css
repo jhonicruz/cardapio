@@ -56,8 +56,10 @@
   position: relative;
 
   width: max-content;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  width: 16.8rem;
+  position: relative;
 }
 
 .etapas-numeros span {
@@ -68,18 +70,44 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-white);
+  transition: 250ms ease-in-out;
 }
 
-.etapas-numeros span.checked {
-  background-color: var(--color-primary);
-}
-
-.etapas-numeros .line {
+.etapas-numeros span.line {
   display: inline-block;
-  width: 30px;
+  position: absolute;
+  width: 0;
   height: 2px;
-  background-color: lightgrey;
+  background-color: rgb(240, 32, 32);
   border-radius: initial;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left;
+  z-index: -1;
+}
+
+[data-modal="line1"].line {
+  left: 36px;
+}
+[data-modal="line2"].line {
+  left: 102px;
+}
+[data-modal="line1"].checked {
+  width: 30px !important;
+}
+[data-modal="line2"].checked {
+  width: 30px !important;
+}
+[data-modal="line1"].checked,
+[data-modal="line2"].checked {
+  background-color: var(--color-primary) !important;
+}
+
+[data-modal="step1"].checked,
+[data-modal="step2"].checked,
+[data-modal="step3"].checked {
+  background-color: var(--color-primary);
+  border: 1px solid rgba(5, 5, 5, 0.466);
 }
 
 .titulo-carrinho {
@@ -87,10 +115,6 @@
   font-size: 1.8rem;
   font-family: "poppinsregular";
   color: var(--color-black);
-}
-
-.etapas-numeros .line.checked {
-  background-color: var(--color-primary);
 }
 
 .btn-primary.btn-primary--fechar {
@@ -180,6 +204,7 @@
 
 .add-to-cart.add-to-cart-modal {
   display: flex;
+  justify-content: flex-end;
 }
 
 .add-to-cart.add-to-cart-modal .btn-add a {
@@ -247,7 +272,27 @@
   padding: 1rem 2.4rem;
 }
 
+/* Queries */
+
+@media (max-width: 600px) {
+  .grid-form {
+    grid-template-columns: 1fr;
+  }
+  .local-entrega.scrollContainer {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
 @media (max-width: 466px) {
+  .etapas-numeros {
+    width: 13.4rem !important;
+  }
+  [data-modal="line1"].line {
+    left: 26px;
+  }
+  [data-modal="line2"].line {
+    left: 78px;
+  }
   .container.container--modal {
     display: flex;
     padding: initial;
@@ -295,6 +340,9 @@
 
   .etapas {
     padding: initial;
+  }
+  .etapas-numeros {
+    width: 138px;
   }
 
   .etapas-numeros span {
@@ -369,14 +417,4 @@
 .control-form select {
   width: 94%;
   text-align: center;
-}
-
-@media (max-width: 600px) {
-  .grid-form {
-    grid-template-columns: 1fr;
-  }
-  .local-entrega.scrollContainer {
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
 }
