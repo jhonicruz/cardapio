@@ -9,6 +9,7 @@ export default function initModalCarrinho() {
   const entregaContainer = selecionarElementoDom('[data-modal="entrega"]');
   const menuContainer = selecionarElementoDom("#menu");
   const resumoPedido = selecionarElementoDom("[data-modal='resumo']");
+  const resumoEndereco = selecionarElementoDom("[ data-modal='resumo-endereco']");
 
   // titulos
   const tituloProdutos = selecionarElementoDom('[data-modal="titulo-produtos"]');
@@ -52,6 +53,7 @@ export default function initModalCarrinho() {
       toggleMenu.classList.remove("open");
     }
     modalContainer.classList.remove(classeHidden);
+    document.body.style.overflow = "hidden";
 
     fecharModal();
     continuar();
@@ -87,7 +89,10 @@ export default function initModalCarrinho() {
 
   function voltarMeio() {
     btnVoltarRevisao.addEventListener("click", () => {
-      ocultarElementos([resumoPedido, tituloResumo, btnVoltarRevisao, btnEnviar], classeHidden);
+      ocultarElementos(
+        [resumoPedido, tituloResumo, btnVoltarRevisao, btnEnviar, resumoEndereco],
+        classeHidden
+      );
       mostrarElementos([entregaContainer, tituloEntrega, btnRevisar, btnVoltar], classeHidden);
       ocultarEtapas([step3, line2], classechecked);
     });
@@ -99,7 +104,10 @@ export default function initModalCarrinho() {
     eventos.forEach((eventoUsuario) =>
       btnRevisar.addEventListener(eventoUsuario, () => {
         ocultarElementos([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
-        mostrarElementos([resumoPedido, tituloResumo, btnVoltarRevisao, btnEnviar], classeHidden);
+        mostrarElementos(
+          [resumoPedido, tituloResumo, resumoEndereco, btnVoltarRevisao, btnEnviar],
+          classeHidden
+        );
 
         mostrarEtapas([step3, line2], classechecked);
       })
