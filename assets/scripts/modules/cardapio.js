@@ -2,17 +2,23 @@ export default function initCardapio() {}
 
 const container = document.querySelector("[data-cardapio]");
 const btnVerMais = document.querySelector("[data-verMais]");
-const botoesCategorias = document.querySelectorAll("[data-categorias] ul li");
+const botoesCategorias = document.querySelectorAll("[data-categorias] ul li a");
 
 botoesCategorias.forEach((link, index) => {
   link.addEventListener("click", (e) => {
     e.preventDefault();
+
+    botoesCategorias.forEach((link) => link.classList.remove("ativo"));
+
+    link.classList.add("ativo");
+
     buscarMenu(index);
   });
 });
 
 async function buscarMenu(index) {
-  const responseMenu = await fetch("/cardapio/menu.json");
+  // const responseMenu = await fetch("/cardapio/menu.json"); //endereço remoto
+  const responseMenu = await fetch("/menu.json"); //endereço Local
   const dadosMenu = await responseMenu.json();
   container.innerHTML = "";
 
@@ -107,6 +113,7 @@ buscarMenu(0);
 
 function criarProduto(nome, preco, imagem) {
   const template = `
+              <div class="box animar">
               <div class="cardapio__item shadow-8dp">
               <div class="cardapio__item__image">
                 <img
@@ -135,6 +142,7 @@ function criarProduto(nome, preco, imagem) {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
   `;
   const div = document.createElement("div");

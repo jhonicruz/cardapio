@@ -6,15 +6,19 @@ const depoimentosBtn = document.querySelectorAll("[data-depoimentos='buttons']")
 
 const events = ["click", "touch"];
 
-depoimentosBtn.forEach((button, index) => {
-  events.forEach((userEvent) =>
-    button.addEventListener(userEvent, (e) => {
-      e.preventDefault();
-      depoimentos.forEach((depoimento) => {
-        depoimento.classList.add("hidden");
-      });
+depoimentosBtn[0].classList.add("ativo");
+depoimentos[0].classList.remove("hidden");
 
-      depoimentos[index].classList.remove("hidden");
-    })
-  );
+function mostrarDepoimento(index) {
+  depoimentos.forEach((depoimento) => depoimento.classList.add("hidden"));
+  depoimentos[index].classList.remove("hidden");
+  depoimentosBtn.forEach((btn) => btn.classList.remove("ativo"));
+  depoimentosBtn[index].classList.add("ativo");
+}
+
+depoimentosBtn.forEach((btn, index) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    mostrarDepoimento(index);
+  });
 });

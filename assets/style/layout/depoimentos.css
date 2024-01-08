@@ -133,7 +133,8 @@
   border: none;
 }
 
-.depoimentos__content__pages button:hover {
+.depoimentos__content__pages button:hover,
+.depoimentos__content__pages button.ativo {
   background-color: var(--color-primary);
 }
 

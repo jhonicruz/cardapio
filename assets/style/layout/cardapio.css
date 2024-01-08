@@ -35,6 +35,14 @@
   overflow: hidden;
 }
 
+.box {
+  transition: 900ms;
+}
+
+.box.animar {
+  animation: slide ease 900ms forwards;
+}
+
 /* hover effects */
 .cardapio__item:hover {
   background-color: var(--color-primary);

@@ -12,6 +12,7 @@
   background-color: var(--color-white);
 }
 
-.link-categories:hover {
+.link-categories:hover,
+.link-categories.ativo {
   background-color: var(--color-primary);
 }
