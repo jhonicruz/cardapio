@@ -71,7 +71,8 @@ export default function initModalCarrinho() {
 
   function continuar() {
     eventos.forEach((eventoUsuario) =>
-      btnContinuar.addEventListener(eventoUsuario, () => {
+      btnContinuar.addEventListener(eventoUsuario, (e) => {
+        e.preventDefault();
         ocultarElementos([produtosContainer, tituloProdutos, btnContinuar], classeHidden);
         mostrarElementos([entregaContainer, tituloEntrega, btnVoltar, btnRevisar], classeHidden);
         mostrarEtapas([step2, line1], classechecked);
