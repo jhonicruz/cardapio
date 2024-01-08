@@ -272,6 +272,68 @@
   padding: 1rem 2.4rem;
 }
 
+.local-entrega {
+  height: max-content;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: modal 0.3s ease-in-out;
+}
+
+.control-form {
+  display: flex;
+  align-items: center;
+  height: auto;
+  height: auto;
+}
+
+.grid-form {
+  display: grid;
+  grid-template-columns: 6fr 4fr 2fr;
+
+  gap: 2rem;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  padding: 2rem 0.8rem;
+}
+
+.grid-form input,
+.grid-form #uf {
+  display: block;
+}
+
+.cep {
+  grid-column: 1/-1;
+}
+.cep input {
+  max-width: 300px !important;
+}
+
+.control-form input,
+.control-form select {
+  display: block;
+  margin-top: 0.8rem;
+  padding: 1.4rem;
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  font-family: "poppinsregular", sans-serif;
+}
+
+.control-form label {
+  width: 100%;
+}
+
+.control-form input {
+  width: 94%;
+}
+
+.control-form select {
+  width: 94%;
+  text-align: center;
+}
 /* Queries */
 
 @media (max-width: 600px) {
@@ -354,67 +416,4 @@
     width: 15px;
     height: 2px;
   }
-}
-
-.local-entrega {
-  height: max-content;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: modal 0.3s ease-in-out;
-}
-
-.control-form {
-  display: flex;
-  align-items: center;
-  height: auto;
-  height: auto;
-}
-
-.grid-form {
-  display: grid;
-  grid-template-columns: 6fr 4fr 2fr;
-
-  gap: 2rem;
-  width: 100%;
-  height: auto;
-  align-items: center;
-  padding: 2rem 0.8rem;
-}
-
-.grid-form input,
-.grid-form #uf {
-  display: block;
-}
-
-.cep {
-  grid-column: 1/-1;
-}
-.cep input {
-  max-width: 300px !important;
-}
-
-.control-form input,
-.control-form select {
-  display: block;
-  margin-top: 0.8rem;
-  padding: 1.4rem;
-  outline: none;
-  border: none;
-  border-radius: 50px;
-  font-family: "poppinsregular", sans-serif;
-}
-
-.control-form label {
-  width: 100%;
-}
-
-.control-form input {
-  width: 94%;
-}
-
-.control-form select {
-  width: 94%;
-  text-align: center;
 }
