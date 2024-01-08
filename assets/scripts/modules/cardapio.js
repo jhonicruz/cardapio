@@ -22,6 +22,8 @@ async function buscarMenu(index) {
   const dadosMenu = await responseMenu.json();
   container.innerHTML = "";
 
+  const [burgers, pizzas, churrasco, steaks, bebidas, sobremesas] = dadosMenu;
+
   if (index == 0) {
     dadosMenu[0].burgers.forEach((items) => {
       const idProdutos = items.id;
@@ -45,6 +47,7 @@ async function buscarMenu(index) {
       const imagemProdutos = items.img;
 
       criarProduto(nomeProdutos, precoProdutos, imagemProdutos);
+      adicionarAoCarrinho();
     });
   } else if (index == 2) {
     dadosMenu[2].churrasco.forEach((items) => {
@@ -137,7 +140,7 @@ function criarProduto(nome, preco, imagem) {
 
                   <div class="btn-add-box">
                     <span class="btn-add"
-                      ><a href="#"><i class="fa fa-shopping-bag"></i></a
+                      ><a href="#" class="btn-adicionar"><i class="fa fa-shopping-bag"></i></a
                     ></span>
                   </div>
                 </div>
@@ -148,4 +151,16 @@ function criarProduto(nome, preco, imagem) {
   const div = document.createElement("div");
   div.innerHTML = template;
   container.appendChild(div);
+}
+
+function adicionarAoCarrinho() {
+  const addMais = document.querySelectorAll(".add-mais");
+  const addMenos = document.querySelectorAll(".add-menos");
+  const addNumero = document.querySelectorAll(".add-numero-items");
+  const btnAdicionar = document.querySelectorAll(".btn-adicionar");
+
+  console.log(addMais);
+  console.log(addMenos);
+  console.log(addNumero);
+  console.log(btnAdicionar);
 }
