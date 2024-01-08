@@ -12,7 +12,7 @@ botoesCategorias.forEach((link, index) => {
 });
 
 async function buscarMenu(index) {
-  const responseMenu = await fetch("/menu.json");
+  const responseMenu = await fetch("menu.json");
   const dadosMenu = await responseMenu.json();
   container.innerHTML = "";
 
