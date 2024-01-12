@@ -26,6 +26,8 @@
   /* border-radius: 20px; */
   padding: 0 2rem;
   transition: 300ms;
+  position: relative;
+  cursor: pointer;
 }
 
 .btn-primary a:hover {

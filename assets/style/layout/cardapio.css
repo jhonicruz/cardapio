@@ -164,9 +164,11 @@
 }
 
 .add-to-cart__buttons span.add-numero-items {
-  padding: 2px 15px;
+  padding-top: 2px;
   border-top: 2px solid var(--color-black);
   border-bottom: 2px solid var(--color-black);
+  width: 4rem;
+  font-weight: bold;
 }
 
 .add-to-cart__buttons span.add-menos,
@@ -202,6 +204,43 @@
   border-radius: 10px;
   color: var(--color-white) !important;
   cursor: pointer;
+}
+
+.badge-total-carrinho {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  background-color: var(--color-secudary);
+  border-radius: 50px;
+  right: -5px;
+  top: -5px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao-carrinho {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-black-heavy) !important;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.bagde-botao-superior {
+  right: 10px;
+  top: 5px;
 }
 
 /* .add-to-cart span {

@@ -1,0 +1,22 @@
+.container-mensagens {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  color: var(--color-white);
+  padding: 1rem 2.5rem;
+  font-size: 1.8rem;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.toast.red {
+  background-color: red;
+}
+
+.toast.green {
+  background-color: rgb(18, 158, 18);
+}

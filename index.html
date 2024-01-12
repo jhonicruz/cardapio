@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="./assets/style/main.css" />
   </head>
   <body>
+
+    <div class="container-mensagens" id="container-mensagens"></div>
+
+      <a class="botao-carrinho shadow-8dp hidden" onclick="cardapio.metodos.abrirCarrinho(true)">
+
+        <div class="badge-total-carrinho">0</div>
+        <i class="fa fa-shopping-bag"></i>
+      </a>
+
     <header class="header">
       <div class="header-container container">
         <div class="header__logo">
@@ -29,7 +38,7 @@
 
           <ul id="menu" role="menu" data-menu="scroll">
             <li>
-              <a href="#carrinho" data-modal="btn">Carrinho<i class="fa-solid fa-bag-shopping"></i></a>
+              <a href="#carrinho" data-modal="btn" onclick="cardapio.metodos.abrirCarrinho(true)">Carrinho<i class="fa-solid fa-bag-shopping"></i></a>
               
             </li>
             <li>
@@ -50,7 +59,12 @@
         </nav>
         <div class="container-cart">
           <button class="btn-primary shadow-8dp" data-modal="btn-meuCarrinho">
-            <a href="#">Meu carrinho <i class="fa-solid fa-bag-shopping"></i></a>
+            
+            <a  onclick="cardapio.metodos.abrirCarrinho(true)">Meu carrinho 
+              <div class="badge-total-carrinho container-total-carrinho bagde-botao-superior hidden">8</div>
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+         
           </button>
         </div>
       </div>
@@ -134,31 +148,31 @@
       <div class="cardapio__categories" data-categorias>
         <ul>
           <li>
-            <a href="" class="link-categories shadow-8dp ativo">
+            <a class="link-categories shadow-8dp" onclick="cardapio.metodos.obterItensCardapio('burgers')" id="menu-burgers">
               <i class="fas fa-hamburger"></i>Burgers</a
             >
           </li>
           <li>
-            <a href="" class="link-categories shadow-8dp"
-              ><i class="fas fa-pizza-slice"></i>Pizzas</a
+            <a class="link-categories shadow-8dp" onclick="cardapio.metodos.obterItensCardapio('pizzas')"
+            id="menu-pizzas"><i class="fas fa-pizza-slice"></i>Pizzas</a
             >
           </li>
           <li>
-            <a href="" class="link-categories shadow-8dp"
-              ><i class="fas fa-drumstick-bite"></i>Churrasco</a
+            <a class="link-categories shadow-8dp" onclick="cardapio.metodos.obterItensCardapio('churrasco')"
+            id="menu-churrasco"><i class="fas fa-drumstick-bite"></i>Churrasco</a
             >
           </li>
           <li>
-            <a href="" class="link-categories shadow-8dp"> <i class="fas fa-bacon"></i>Steaks</a>
+            <a class="link-categories shadow-8dp" onclick="cardapio.metodos.obterItensCardapio('steaks')" id="menu-steaks"> <i class="fas fa-bacon"></i>Steaks</a>
           </li>
           <li>
-            <a href="" class="link-categories shadow-8dp"
-              ><i class="fas fa-cocktail"></i>Bebidas</a
+            <a class="link-categories shadow-8dp" onclick="cardapio.metodos.obterItensCardapio('bebidas')"
+            id="menu-bebidas"><i class="fas fa-cocktail"></i>Bebidas</a
             >
           </li>
           <li>
-            <a href="" class="link-categories shadow-8dp"
-              ><i class="fas fa-ice-cream"></i>Sobremesas</a
+            <a class="link-categories shadow-8dp" onclick="cardapio.metodos.obterItensCardapio('sobremesas')"
+            id="menu-sobremesas"><i class="fas fa-ice-cream"></i>Sobremesas</a
             >
           </li>
         </ul>
@@ -166,352 +180,13 @@
 
       <div class="cardapio__cards" data-cardapio>
 
-        <!-- <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Gramercy Tavern</h3>
-              <span>R$ 99,00</span>
-            </div>
-
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/goldbelly-burger-blend-1-lb.13a21b66edf7173a59c75c3a6d2f981b.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Shake Shack</h3>
-              <span>R$ 49,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Gott's Roadside</h3>
-              <span>R$ 99,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-8.092aa049d00286fa1733d720decc782e.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Emmy Squared</h3>
-              <span>R$ 99,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-15.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content">
-              <div class="cardapio__item__content__text">
-                <h3>Peter Luguer</h3>
-                <span>R$ 42,00</span>
-              </div>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/Gramercy-Tavern-Burger-and-Kielbasa-Kit-6.4.21-72ppi-1x1-47.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Holeman and Finch</h3>
-              <span>R$ 99,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/handf-double-stack-burger-kit-for-4.4ee9f54b1d6087e9996335f07c13e5cd.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Pat Lafrida Melory</h3>
-              <span>R$ 199,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/le-big-matt-kit-for-6.1ddae6e382bb3218eeb0fd5247de115a.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Joseph Woosh</h3>
-              <span>R$ 99,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/shake-shack-shackburger-16-pack.316f8b09144db65931ea29e34869287a.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Flannery Beef</h3>
-              <span>R$ 67,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/shake-shack-shackburger-8-pack.973a5e26836ea86d7e86a327becea2b0.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Gandolph Rurguer</h3>
-              <span>R$ 140,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/the-burger-bash-package.bd9d12d031865940bbe5faf15f1a62f8.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Saul Godman</h3>
-              <span>R$ 80,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="cardapio__item shadow-8dp">
-          <div class="cardapio__item__image">
-            <img
-              src="./assets/img/cardapio/burguers/usda-prime-burgers-pack-of-18-8oz-each.274c67f15aa1c0b210dbf51801706670.jpg"
-              alt=""
-            />
-          </div>
-
-          <div class="cardapio__item__content">
-            <div class="cardapio__item__content__text">
-              <h3>Big Mac</h3>
-              <span>R$ 40,00</span>
-            </div>
-            <div class="add-to-cart">
-              <div class="add-to-cart__buttons">
-                <span class="add-menos"><i class="fas fa-minus"></i></span>
-                <span class="add-numero-items">0</span>
-                <span class="add-mais"><i class="fas fa-plus"></i></span>
-              </div>
-
-              <div class="btn-add-box">
-                <span class="btn-add"
-                  ><a href="#"><i class="fa fa-shopping-bag"></i></a
-                ></span>
-              </div>
-            </div>
-          </div>
-        </div> -->
+    
       </div>
 
       <div class="bg bg--cardapio"></div>
 
-      <button class="btn-primary shadow-8dp" data-vermais>
-        <a href="#">Ver mais</a>
+      <button class="btn-primary shadow-8dp" data-vermais  id="vermais">
+        <a onclick="cardapio.metodos.verMais()">Ver mais</a>
       </button>
     </main>
 
@@ -678,34 +353,28 @@
           
             <div class="etapas-container">
               <div class="etapas-numeros">
-                <span class="shadow-8dp checked" data-modal="step1">1</span>
+                <span class="shadow-8dp"   class="etapa" data-modal="step1"  data-modal="step">1</span>
                 <span class="line" data-modal="line1"></span>
-                <span class="shadow-8dp " data-modal="step2">2</span>
+                <span class="shadow-8dp " class="etapa"  data-modal="step2" data-modal="step">2</span>
                 <span class="line " data-modal="line2"></span>
-                  <span class="shadow-8dp" data-modal="step3">3</span>
+                  <span class="shadow-8dp" class="etapa"  data-modal="step3" data-modal="step">3</span>
                 </div>
       
                 <div class="botao-fechar">
-                  <button class="btn-primary btn-primary--fechar shadow-8dp" data-modal="btn-fechar">
+                  <button class="btn-primary btn-primary--fechar shadow-8dp" data-modal="btn-fechar" onclick="cardapio.metodos.abrirCarrinho(false)">
                     <a href="#">Fechar</a>
                   </button>
                 </div>
       
             </div>
-            <div class="titulo-carrinho " data-modal="titulo-produtos">
+            <div class="titulo-carrinho " data-modal="titulo-etapas">
               <h4>Seu Carrinho</h4>
-            </div>
-            <div class="titulo-carrinho hidden" data-modal="titulo-entrega">
-              <h4>Endereço de Entrega</h4>
-            </div>
-            <div class="titulo-carrinho hidden" data-modal="titulo-resumo">
-              <h4>Resumo do Pedido</h4>
             </div>
           </div>
     
          
     
-          <div class="produtos-container scrollContainer  " data-modal="produtos">
+          <div class="produtos-container hidden scrollContainer  " data-modal="produtos">
     
             <div class="produto ">
     
@@ -732,8 +401,8 @@
                   ></span>
                 </div>
               </div>
-            </div>
-            <div class="produto  ">
+            </div> 
+        <div class="produto  ">
     
               <div class="produto-image">
                 <img src="assets/img/cardapio/burguers/le-big-matt-kit-for-6.1ddae6e382bb3218eeb0fd5247de115a.jpg" alt="">
@@ -914,9 +583,9 @@
                   ></span>
                 </div>
               </div>
-            </div>
+            </div> 
     
-            <!-- <div class="produto">
+      <div class="produto">
     
               <div class="produto-image">
                 <img src="assets/img/cardapio/burguers/gotts-complete-cheeseburger-kit-for-4.7bdc74104b193427b3fe6eae39e05b5e.jpg" alt="">
@@ -994,7 +663,7 @@
                   ></span>
                 </div>
               </div>
-            </div> -->
+            </div>
     
           </div>
 
@@ -1207,16 +876,13 @@
              
     
               <div class="total-botao">
-                <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar">
-                  <a href="#">Voltar</a>
+                <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar" onclick="cardapio.metodos.voltarEtapa()">
+                  <a href="#" >Voltar</a>
                 </button>
-                <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltarRevisao">
-                  <a href="#">Voltar</a>
-                </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar">
+                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar" onclick="cardapio.metodos.carregarEtapa(3)">
                   <a href="#">Revisar Pedido</a>
                 </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp " data-modal="btn-continuar">
+                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-continuar" onclick="cardapio.metodos.carregarEtapa(2)">
                   <a href="#">Continuar</a>
                 </button>
                 <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-enviar">

@@ -85,7 +85,7 @@
     justify-content: flex-start;
     opacity: 0;
     width: 100%;
-    height: calc(100vh - 12rem);
+    height: calc(100svh - 12rem);
     top: 12rem;
     left: 100%;
     z-index: 9999;
