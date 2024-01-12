@@ -23,7 +23,7 @@ var MENU = {
     },
     {
       id: "whole-brisket-texas-bbq-sauce",
-      img: ".assets/img/cardapio/churrasco/whole-brisket-texas-barbecue-bbq-sauce.e07ee4818b20ed43d217bf67fedd41ce.jpg",
+      img: "./assets/img/cardapio/churrasco/whole-brisket-texas-barbecue-bbq-sauce.e07ee4818b20ed43d217bf67fedd41ce.jpg",
       name: "Franklin Barbecue",
       dsc: "Whole Brisket + Texas Barbecue BBQ Sauce",
       price: 249,
@@ -51,7 +51,7 @@ var MENU = {
     },
     {
       id: "006-kings-meat-lovers-special",
-      img: ".../assets/img/cardapio/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
+      img: "./assets/img/cardapio/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
       name: "Kings BBQ",
       dsc: "BBQ Meat Lovers Special for 10",
       price: 139,

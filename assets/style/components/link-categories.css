@@ -15,4 +15,5 @@
 .link-categories:hover,
 .link-categories.ativo {
   background-color: var(--color-primary);
+  cursor: pointer;
 }
