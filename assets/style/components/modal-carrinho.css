@@ -62,7 +62,7 @@
   position: relative;
 }
 
-.etapas-numeros span {
+.etapa {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -71,9 +71,21 @@
   justify-content: center;
   background-color: var(--color-white);
   transition: 250ms ease-in-out;
+  border: 1px solid transparent;
 }
 
-.etapas-numeros span.line {
+.etapa.checked {
+  background-color: var(--color-primary);
+}
+
+.etapa1.checked,
+.etapa2.checked,
+.etapa3.checked {
+  background-color: var(--color-primary);
+  border: 1px solid rgba(5, 5, 5, 0.466);
+}
+
+.line {
   display: inline-block;
   position: absolute;
   width: 0;
@@ -84,30 +96,21 @@
   transform: translateY(-50%);
   transform-origin: left;
   z-index: -1;
+  transition: 350ms;
 }
 
-[data-modal="line1"].line {
+.line1 {
   left: 36px;
 }
-[data-modal="line2"].line {
+
+.line2 {
   left: 102px;
 }
-[data-modal="line1"].checked {
-  width: 30px !important;
-}
-[data-modal="line2"].checked {
-  width: 30px !important;
-}
-[data-modal="line1"].checked,
-[data-modal="line2"].checked {
-  background-color: var(--color-primary) !important;
-}
 
-[data-modal="step1"].checked,
-[data-modal="step2"].checked,
-[data-modal="step3"].checked {
+.line1.checked,
+.line2.checked {
+  width: 30px;
   background-color: var(--color-primary);
-  border: 1px solid rgba(5, 5, 5, 0.466);
 }
 
 .titulo-carrinho {
@@ -346,15 +349,6 @@
   }
 }
 @media (max-width: 466px) {
-  .etapas-numeros {
-    width: 13.4rem !important;
-  }
-  [data-modal="line1"].line {
-    left: 26px;
-  }
-  [data-modal="line2"].line {
-    left: 78px;
-  }
   .container.container--modal {
     display: flex;
     padding: initial;
@@ -363,8 +357,37 @@
     padding: 1rem;
   }
 
+  .etapas {
+    padding: initial;
+  }
+
+  .etapas-numeros {
+    width: 13.4rem;
+  }
+
+  .etapa {
+    width: 26px;
+    height: 26px;
+  }
+
+  .line.checked {
+    width: 3.2rem;
+    height: 2px;
+  }
+
+  .line1 {
+    left: 26px;
+  }
+  .line2 {
+    left: 78px;
+  }
+
   .titulo-carrinho {
     padding: initial;
+  }
+  .produtos-container {
+    height: 100%;
+    padding: 1rem 0;
   }
   .produto {
     width: 100%;
@@ -383,11 +406,6 @@
     gap: 0.4rem;
   }
 
-  .produtos-container {
-    height: 100%;
-    padding: 1rem 0;
-  }
-
   .add-to-cart.add-to-cart-modal {
     gap: 1.4rem;
     justify-content: flex-end;
@@ -398,22 +416,5 @@
   }
   .total-infos .total-preco {
     margin: 0;
-  }
-
-  .etapas {
-    padding: initial;
-  }
-  .etapas-numeros {
-    width: 138px;
-  }
-
-  .etapas-numeros span {
-    width: 26px;
-    height: 26px;
-  }
-
-  .etapas-numeros .line {
-    width: 15px;
-    height: 2px;
   }
 }

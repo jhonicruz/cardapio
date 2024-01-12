@@ -6,8 +6,7 @@ $(document).ready(function () {
   cardapio.metodos.diminuirQuantidade();
   cardapio.metodos.adicionarAoCarrinho();
   cardapio.metodos.atualizarBadgeTotal();
-  // cardapio.metodos.carregarCarrinho();
-  cardapio.metodos.carregarEtapa(1);
+  cardapio.metodos.carregarEtapa();
 });
 
 var cardapio = {};
@@ -153,9 +152,9 @@ cardapio.metodos = {
   carregarEtapa: (etapa) => {
     if (etapa == 1) {
       // etapas
-
-      $(".etapas-numeros span").removeClass("checked");
-      $("[data-modal='step1']").addClass("checked");
+      $(".line").removeClass("checked");
+      $(".etapa").removeClass("checked");
+      $(".etapa1").addClass("checked");
 
       // titulo
       $("[data-modal='titulo-etapas'] h4").text("Seu Carrinho:");
@@ -176,11 +175,12 @@ cardapio.metodos = {
 
     if (etapa == 2) {
       // etapas
-      $(".etapas-numeros span").removeClass("checked");
+      $(".etapa").removeClass("checked");
+      $(".line").removeClass("checked");
 
-      $("[data-modal='step1']").addClass("checked");
-      $("[data-modal='step2']").addClass("checked");
-      $("[data-modal='line1']").addClass("checked");
+      $(".etapa1").addClass("checked");
+      $(".etapa2").addClass("checked");
+      $(".line1").addClass("checked");
 
       // titulo
 
@@ -204,15 +204,16 @@ cardapio.metodos = {
 
     if (etapa == 3) {
       // etapas
+      $(".line").removeClass("checked");
 
-      $("[data-modal='step1']").addClass("checked");
-      $("[data-modal='line1']").addClass("checked");
+      $(".etapa1").addClass("checked");
+      $(".line1").addClass("checked");
 
-      $("[data-modal='step2']").addClass("checked");
-      $("[data-modal='line1']").addClass("checked");
+      $(".etapa2").addClass("checked");
+      $(".line2").addClass("checked");
 
-      $("[data-modal='step3']").addClass("checked");
-      $("[data-modal='line2']").addClass("checked");
+      $(".etapa3").addClass("checked");
+      $(".line2").addClass("checked");
       // titulo
 
       $("[data-modal='titulo-etapas'] h4").text("Endereço de Entrega:");
@@ -235,12 +236,8 @@ cardapio.metodos = {
   },
 
   voltarEtapa: () => {
-    let etapa = $("[data-modal='step'].checked").length;
-    let etapa2 = $("span.etapa.checked").length;
-
-    cardapio.metodos.carregarEtapa(etapa2 - 1);
-
-    console.log(etapa2);
+    let etapa = $(".etapa.checked").length;
+    cardapio.metodos.carregarEtapa(etapa - 1);
   },
 
   mensagem: (texto, cor = "red", tempo = 3000) => {
