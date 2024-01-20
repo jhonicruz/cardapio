@@ -13,6 +13,10 @@ var cardapio = {};
 
 var meuCarrinho = [];
 
+var valorCarrinho = 0;
+
+var valorEntrega = 5;
+
 cardapio.metodos = {
   init: () => {
     console.log("iniciou");
@@ -247,6 +251,10 @@ cardapio.metodos = {
 
     if (meuCarrinho.length > 0) {
       $(".produtos-container").html("");
+      $(".produtos-container").css({
+        "justify-content": "flex-start",
+        "border-bottom": "none",
+      });
 
       $.each(meuCarrinho, (i, e) => {
         let price = e.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -261,8 +269,13 @@ cardapio.metodos = {
       });
     } else {
       $(".produtos-container").html(
-        '<p class="carrinho-vazio"><i class="fa fa-shopping-bag"></i> Seu Carrinho está vazio</p>'
+        '<p class="carrinho-vazio" style="justify-self:center;"><i class="fa fa-shopping-bag"></i> Seu Carrinho está vazio</p>'
       );
+
+      $(".produtos-container").css({
+        "justify-content": "center",
+        "border-bottom": "1px solid rgb(231, 231, 231)",
+      });
     }
   },
 
@@ -302,6 +315,11 @@ cardapio.metodos = {
 
     // Atualiza o botão carrinho com a quantidade atualizada
     cardapio.metodos.atualizarBadgeTotal();
+  },
+
+  // carrega os valores de subtotal e taotal
+  carregarValores: () => {
+    valorCarrinho = 0;
   },
 
   mensagem: (texto, cor = "red", tempo = 3000) => {

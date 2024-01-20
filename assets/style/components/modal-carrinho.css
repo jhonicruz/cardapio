@@ -218,8 +218,6 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
-
-  padding: 0 2rem;
   text-align: right;
 }
 
@@ -232,16 +230,48 @@
 .subtotal {
   display: flex;
   flex-direction: column;
-  gap: 1.9;
+  gap: 0.4rem;
 }
-.subtotal span:first-child {
+
+.valor-subtotal span {
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.valor-entrega span {
+  color: var(--color-separate);
+  font-size: 1.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.valor-total {
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.valor-total span:first-child {
+  color: var(--color-black);
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.valor-total span + span {
+  color: var(--color-primary);
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+
+/* .subtotal span:first-child {
   font-size: 1.6rem;
   font-family: "poppinsregular";
   color: var(--color-text);
   margin-bottom: 0.5rem;
-}
+} */
 
-.subtotal .entrega i {
+.subtotal i {
   margin-right: 5px;
 }
 
@@ -250,7 +280,7 @@
   font-family: "poppinsregular";
   color: lightslategray;
 }
-
+/* 
 .total-infos .total-preco span {
   font-size: 2rem;
   color: var(--color-black);
@@ -263,7 +293,7 @@
   font-family: "poppinsbold";
   color: var(--color-primary);
   margin-bottom: 0.4rem;
-}
+} */
 
 .total-botao {
   display: flex;

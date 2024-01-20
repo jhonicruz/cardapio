@@ -863,37 +863,44 @@
           
     
           <div class="total ">
-            <div class="total-infos">
-              <div class="subtotal">
-                <span>Subtotal: R$ 148,00</span>
-                <span class="entrega"><i class="fas fa-motorcycle"></i>Entrega: + 5,00</span>
+              <div class="total-infos">
+                  <div class="subtotal">
+
+                    <p class="valor-subtotal">
+                      <span>Subtotal:</span>
+                      <span>R$ 0,00</span>
+                    </p>
+
+                    <p class="valor-entrega">
+                      <span><i class="fas fa-motorcycle"></i>Entrega:</span>
+                      <span>+ R$ 0,00</span>
+                    </p>
+
+                    <p class="valor-total">
+                      <span>Total:</span>
+                      <span>R$ 100,00</span>
+                    </p>
+
+                  <div class="total-botao">
+                    <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar" onclick="cardapio.metodos.voltarEtapa()">
+                      <a href="#" >Voltar</a>
+                    </button>
+                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar" onclick="cardapio.metodos.carregarEtapa(3)">
+                      <a href="#">Revisar Pedido</a>
+                    </button>
+                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-continuar" onclick="cardapio.metodos.carregarEtapa(2)">
+                      <a href="#">Continuar</a>
+                    </button>
+                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-enviar">
+                      <a href="#">Enviar</a>
+                    </button>
+                
+        
+                  </div>
+
+                  </div>
               </div>
-    
-              <p class="total-preco"><span>Total:</span> 153,00</p>
-             
-    
-              <div class="total-botao">
-                <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar" onclick="cardapio.metodos.voltarEtapa()">
-                  <a href="#" >Voltar</a>
-                </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar" onclick="cardapio.metodos.carregarEtapa(3)">
-                  <a href="#">Revisar Pedido</a>
-                </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-continuar" onclick="cardapio.metodos.carregarEtapa(2)">
-                  <a href="#">Continuar</a>
-                </button>
-                <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-enviar">
-                  <a href="#">Enviar</a>
-                </button>
-             
-    
-              </div>
-    
-            </div>
           </div>
-  
-    
-        </div>
 
      
     </section>
