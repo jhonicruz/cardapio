@@ -266,6 +266,12 @@ cardapio.metodos = {
           .replace(/\${id}/g, e.id)
           .replace(/\${qntd}/g, e.qntd);
         $(".produtos-container").append(temp);
+
+        // último item
+
+        if (i + 1 == meuCarrinho.length) {
+          cardapio.metodos.carregarValores();
+        }
       });
     } else {
       $(".produtos-container").html(
@@ -276,6 +282,7 @@ cardapio.metodos = {
         "justify-content": "center",
         "border-bottom": "1px solid rgb(231, 231, 231)",
       });
+      cardapio.metodos.carregarValores();
     }
   },
 
@@ -315,11 +322,36 @@ cardapio.metodos = {
 
     // Atualiza o botão carrinho com a quantidade atualizada
     cardapio.metodos.atualizarBadgeTotal();
+
+    // Atualiza os valores (R$) totais do carrinho
+    cardapio.metodos.carregarValores();
   },
 
-  // carrega os valores de subtotal e taotal
+  // carrega os valores de subtotal e total
   carregarValores: () => {
     valorCarrinho = 0;
+
+    $("#valorSubtotal").text("R$ 0,00");
+    $("#valorEntrega").text("R$ + 0,00");
+    $("#valorTotal").text("R$ 0,00");
+
+    $.each(meuCarrinho, (i, e) => {
+      valorCarrinho += parseFloat(e.price * e.qntd);
+      if (i + 1 == meuCarrinho.length) {
+        $("#valorSubtotal").text(
+          `${valorCarrinho.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`
+        );
+        $("#valorEntrega").text(
+          `+ ${valorEntrega.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`
+        );
+        $("#valorTotal").text(
+          `${(valorCarrinho + valorEntrega).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}`
+        );
+      }
+    });
   },
 
   mensagem: (texto, cor = "red", tempo = 3000) => {
