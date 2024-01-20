@@ -44,14 +44,14 @@ var MENU = {
     },
     {
       id: "235203-blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo",
-      img: "./assets/img/cardapio/blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo.a95a3e632ae324f719738a2a5c1dff6e.jpg",
+      img: "./assets/img/cardapio/churrasco/blue-smoke-baby-back-ribs-backyard-barbecue-chicken-combo.a95a3e632ae324f719738a2a5c1dff6e.jpg",
       name: "Blue Smoke",
       dsc: "Blue Smoke Baby Back Ribs + Backyard Barbecue Chicken Combo",
       price: 129,
     },
     {
       id: "006-kings-meat-lovers-special",
-      img: "./assets/img/cardapio/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
+      img: "./assets/img/cardapio/churrasco/bbq-meat-lovers-special-for-10.36ca670fda4bfa783c2ea9165e068d26.jpg",
       name: "Kings BBQ",
       dsc: "BBQ Meat Lovers Special for 10",
       price: 139,

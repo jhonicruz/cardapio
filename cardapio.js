@@ -141,7 +141,7 @@ cardapio.metodos = {
   abrirCarrinho: (abrir) => {
     if (abrir) {
       $("[data-modal='modal']").removeClass("hidden");
-      cardapio.metodos.carregarEtapa(1);
+      cardapio.metodos.carregarCarrinho();
       document.body.style.overflow = "hidden";
     } else {
       $("[data-modal='modal']").addClass("hidden");
@@ -164,6 +164,7 @@ cardapio.metodos = {
 
       $(".local-entrega ").addClass("hidden");
       $(".resumo-pedido").addClass("hidden");
+      $("[data-modal='resumo-endereco']").addClass("hidden");
 
       // botoes
       $("[data-modal='btn-continuar']").removeClass("hidden");
@@ -190,9 +191,8 @@ cardapio.metodos = {
 
       $("[data-modal='produtos']").addClass("hidden");
       $("[data-modal='resumo']").addClass("hidden");
-
+      $("[data-modal='resumo-endereco']").addClass("hidden");
       $("[data-modal='entrega']").removeClass("hidden");
-
       //botoes
 
       $("[data-modal='btn-revisar']").removeClass("hidden");
@@ -216,14 +216,14 @@ cardapio.metodos = {
       $(".line2").addClass("checked");
       // titulo
 
-      $("[data-modal='titulo-etapas'] h4").text("Endereço de Entrega:");
+      $("[data-modal='titulo-etapas'] h4").text("Resumo do Pedido");
 
       // containers
 
       $("[data-modal='produtos']").addClass("hidden");
       $("[data-modal='entrega']").addClass("hidden");
-
       $("[data-modal='resumo']").removeClass("hidden");
+      $("[data-modal='resumo-endereco']").removeClass("hidden");
 
       //botoes
 
@@ -238,6 +238,70 @@ cardapio.metodos = {
   voltarEtapa: () => {
     let etapa = $(".etapa.checked").length;
     cardapio.metodos.carregarEtapa(etapa - 1);
+  },
+
+  // Carrega lista de itens do carrinho
+
+  carregarCarrinho: () => {
+    cardapio.metodos.carregarEtapa(1);
+
+    if (meuCarrinho.length > 0) {
+      $(".produtos-container").html("");
+
+      $.each(meuCarrinho, (i, e) => {
+        let price = e.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+        let temp = cardapio.templates.itemCarrinho
+          .replace(/\${img}/g, e.img)
+          .replace(/\${name}/g, e.name)
+          .replace(/\${price}/g, price)
+          .replace(/\${id}/g, e.id)
+          .replace(/\${qntd}/g, e.qntd);
+        $(".produtos-container").append(temp);
+      });
+    } else {
+      $(".produtos-container").html(
+        '<p class="carrinho-vazio"><i class="fa fa-shopping-bag"></i> Seu Carrinho está vazio</p>'
+      );
+    }
+  },
+
+  // Diminuir quantidade do item no carrinho
+  diminuirQuantidadeCarrinho: (id) => {
+    let qntdAtual = parseInt($("#qntd-carrinho-" + id).text());
+
+    if (qntdAtual > 1) {
+      $("#qntd-carrinho-" + id).text(qntdAtual - 1);
+      cardapio.metodos.atualizarCarrinho(id, qntdAtual - 1);
+    } else {
+      cardapio.metodos.removerItemCarrinho(id);
+    }
+  },
+
+  aumentarQuantidadeCarrinho: (id) => {
+    let qntdAtual = parseInt($("#qntd-carrinho-" + id).text());
+    $("#qntd-carrinho-" + id).text(qntdAtual + 1);
+    cardapio.metodos.atualizarCarrinho(id, qntdAtual + 1);
+  },
+
+  // botao remover item do carrinho
+
+  removerItemCarrinho: (id) => {
+    meuCarrinho = $.grep(meuCarrinho, (e, i) => {
+      return e.id != id;
+    });
+    cardapio.metodos.carregarCarrinho();
+    // Atualiza o botão carrinho com a quantidade atualizada
+    cardapio.metodos.atualizarBadgeTotal();
+  },
+
+  // Atualiza o carrinho com a quantidade atual
+  atualizarCarrinho: (id, qntd) => {
+    let objIndex = meuCarrinho.findIndex((obj) => obj.id == id);
+    meuCarrinho[objIndex].qntd = qntd;
+
+    // Atualiza o botão carrinho com a quantidade atualizada
+    cardapio.metodos.atualizarBadgeTotal();
   },
 
   mensagem: (texto, cor = "red", tempo = 3000) => {
@@ -290,7 +354,7 @@ cardapio.templates = {
 </div>
 </div>`,
 
-  itemCarrinhos: `  <div class="produto ">
+  itemCarrinho: `  <div class="produto ">
     
  <div class="produto-image">
    <img src="\${img}" alt="">
@@ -305,12 +369,12 @@ cardapio.templates = {
  <div class="add-to-cart add-to-cart-modal">
    <div class="add-to-cart__buttons">
    <span class="add-menos" onclick="cardapio.metodos.diminuirQuantidadeCarrinho('\${id}')" ><i class="fas fa-minus"></i></span>
-   <span class="add-numero-items" id="qntd-\${id}">\${qntd}</span>
+   <span class="add-numero-items" id="qntd-carrinho-\${id}">\${qntd}</span>
    <span class="add-mais" onclick="cardapio.metodos.aumentarQuantidadeCarrinho('\${id}')" ><i class="fas fa-plus"></i></span>
    </div>
 
    <div class="btn-add-box">
-     <span class="btn-add" onclick="cardapio.removerItemCarrinho('\${id}')"
+     <span class="btn-add" onclick="cardapio.metodos.removerItemCarrinho('\${id}')"
        ><a ><i class="fa fa-times"></i></a
      ></span>
    </div>
