@@ -222,7 +222,7 @@ cardapio.metodos = {
       $(".line2").addClass("checked");
       // titulo
 
-      $("[data-modal='titulo-etapas'] h4").text("Resumo do Pedido");
+      $("[data-modal='titulo-etapas'] h4").text("Itens do Pedido:");
 
       // containers
 
@@ -445,17 +445,40 @@ cardapio.metodos = {
       return;
     }
 
-    meuCarrinho = {
-      cep,
-      endereco,
-      bairro,
-      cidade,
-      uf,
-      numero,
-      complemento,
+    meuEndereco = {
+      cep: cep,
+      endereco: endereco,
+      bairro: bairro,
+      cidade: cidade,
+      uf: uf,
+      numero: numero,
+      complemento: complemento,
     };
 
     cardapio.metodos.carregarEtapa(3);
+    cardapio.metodos.carregarResumo();
+  },
+
+  // Carrega a etapa de resumo do pedido
+  carregarResumo: () => {
+    $(".resumo-pedido").html("");
+
+    $.each(meuCarrinho, (i, e) => {
+      let price = e.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+      let temp = cardapio.templates.itemResumo
+        .replace(/\${img}/g, e.img)
+        .replace(/\${name}/g, e.name)
+        .replace(/\${price}/g, price)
+        .replace(/\${qntd}/g, e.qntd);
+      $(".resumo-pedido").append(temp);
+    });
+
+    $(".nome-endereco").html(
+      `${meuEndereco.endereco}, ${meuEndereco.numero}, ${meuEndereco.bairro} `
+    );
+    $(".nome-localidade").html(
+      `${meuEndereco.cidade}-${meuEndereco.uf} / ${meuEndereco.cep}.  ${meuEndereco.complemento}.`
+    );
   },
 
   mensagem: (texto, cor = "red", tempo = 3000) => {
@@ -534,6 +557,26 @@ cardapio.templates = {
    </div>
  </div>
 </div>`,
+
+  itemResumo: `
+  <div class="produto produto-resumo">
+    
+    <div class="produto-image produto-image--resumo">
+      <img src="\${img}" alt="">
+
+      <div class=" produto-preco">
+        <h3>\${name}</h3>
+        <span>\${price}</span>
+      </div>
+
+    </div>
+
+    <div class="produto-quantidade">
+      <span>X \${qntd}</span>
+    </div>
+  </div>
+  
+  `,
 };
 
 cardapio.eventos = {};

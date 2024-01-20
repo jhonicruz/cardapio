@@ -18,12 +18,12 @@
 
 .resumo-endereco__dados {
   display: flex;
-  gap: 1rem;
   align-items: center;
   height: max-content;
   padding: 0.8rem;
   background-color: rgb(241, 241, 241);
   border-radius: 0.2rem;
+  gap: 1rem;
 }
 
 .resumo-endereco__dados i {
@@ -62,4 +62,12 @@
   font-size: 1.8rem;
   color: var(--color-black);
   font-weight: bold;
+}
+@media (max-width: 400px) {
+  .resumo-endereco {
+    width: 100%;
+  }
+  /* .dados p {
+    flex-direction: column;
+  } */
 }
