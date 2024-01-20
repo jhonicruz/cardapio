@@ -669,14 +669,18 @@
 
               <div class="cep control-form" >
                 <label for="cep">CEP:
-                  <input type="text" id="cep" name="cep" autofocus class="shadow-8dp">
-
+                  <div class="cep-container">
+                    <input type="text" id="cep" name="cep" autofocus class="shadow-8dp">
+                    <a class="btn-primary" onclick="cardapio.metodos.buscarCep()"><i class="fa fa-search"></i></a>
+                  </div>
                 </label>
               </div>
               <div class="endereco control-form" >
                 <label for="endereco" >Endereço:
                   <input type="text" id="endereco" name="endereco" autofocus class="shadow-8dp">
+                 
                 </label>
+         
               </div>
               <div class="bairro control-form" >
                 <label for="bairro">Bairro:
@@ -885,10 +889,10 @@
                     <button class="btn-primary  button-total shadow-8dp hidden" data-modal="btn-voltar" onclick="cardapio.metodos.voltarEtapa()">
                       <a href="#" >Voltar</a>
                     </button>
-                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar" onclick="cardapio.metodos.carregarEtapa(3)">
+                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-revisar" onclick="cardapio.metodos.resumoPedido()">
                       <a href="#">Revisar Pedido</a>
                     </button>
-                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-continuar" onclick="cardapio.metodos.carregarEtapa(2)">
+                    <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-continuar" onclick="cardapio.metodos.carregarEndereco()">
                       <a href="#">Continuar</a>
                     </button>
                     <button class="btn-primary btn-primary--yellow button-total shadow-8dp hidden" data-modal="btn-enviar">

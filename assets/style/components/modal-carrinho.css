@@ -340,6 +340,17 @@
 .cep {
   grid-column: 1/-1;
 }
+
+.cep-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cep-container a {
+  cursor: pointer;
+}
+
 .cep input {
   max-width: 300px !important;
 }
@@ -352,7 +363,8 @@
   outline: none;
   border: none;
   border-radius: 50px;
-  font-family: "poppinsregular", sans-serif;
+  font-family: sans-serif;
+  font-size: 1.6rem;
 }
 
 .control-form label {
