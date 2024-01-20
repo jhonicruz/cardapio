@@ -19,9 +19,15 @@ var valorCarrinho = 0;
 
 var valorEntrega = 5;
 
+var celularEmpresa = "5588999834281";
+
 cardapio.metodos = {
   init: () => {
     console.log("iniciou");
+
+    cardapio.metodos.obterItensCardapio();
+    cardapio.metodos.carregarBotaoReserva();
+    cardapio.metodos.carregarBotaoLigar();
   },
 
   obterItensCardapio: (categoria = "burgers", vermais = false) => {
@@ -479,6 +485,50 @@ cardapio.metodos = {
     $(".nome-localidade").html(
       `${meuEndereco.cidade}-${meuEndereco.uf} / ${meuEndereco.cep}.  ${meuEndereco.complemento}.`
     );
+
+    cardapio.metodos.finalizarPedido();
+  },
+
+  finalizarPedido: () => {
+    if (meuCarrinho.length > 0 && meuEndereco != null) {
+      var texto = "Olá! gostaria de fazer um pedido:";
+      texto += `\n*Itens do pedido:*\n\n\${itens}`;
+      texto += "\n*Endereço de entrega:*";
+      texto += `\n${meuEndereco.endereco}, ${meuEndereco.numero}, ${meuEndereco.bairro}`;
+      texto += `\n${meuEndereco.cidade}-${meuEndereco.uf} / ${meuEndereco.cep} ${meuEndereco.complemento}`;
+      texto += `\n\n*Total (com entrega): ${(valorCarrinho + valorEntrega).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}*`;
+
+      var itens = "";
+
+      $.each(meuCarrinho, (i, e) => {
+        itens += `*${e.qntd}X* ${e.name} ...... R$ ${e.price.toFixed(2).replace(".", ",")}\n`;
+
+        // ultimo item
+        if (i + 1 == meuCarrinho.length) {
+          // converter URL
+          texto = texto.replace(/\${itens}/g, itens);
+          let encode = encodeURI(texto);
+          let URL = `https://wa.me/${celularEmpresa}?text=${encode}`;
+
+          $("#enviarPedido").attr("href", URL);
+        }
+      });
+    }
+  },
+
+  carregarBotaoReserva: () => {
+    var texto = "Olá, gostaria de fazer uma *Reserva*";
+    let encode = encodeURI(texto);
+    let URL = `https://wa.me/${celularEmpresa}?text=${encode}`;
+
+    $("#btnReserva").attr("href", URL);
+  },
+
+  carregarBotaoLigar: () => {
+    $("#btnLigar").attr("href", `tel:${celularEmpresa}`);
   },
 
   mensagem: (texto, cor = "red", tempo = 3000) => {
